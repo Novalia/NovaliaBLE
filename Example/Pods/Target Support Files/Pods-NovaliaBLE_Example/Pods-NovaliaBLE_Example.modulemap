@@ -1,0 +1,6 @@
+framework module Pods_NovaliaBLE_Example {
+  umbrella header "Pods-NovaliaBLE_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

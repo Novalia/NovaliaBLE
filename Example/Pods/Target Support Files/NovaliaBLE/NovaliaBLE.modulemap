@@ -1,0 +1,6 @@
+framework module NovaliaBLE {
+  umbrella header "NovaliaBLE-umbrella.h"
+
+  export *
+  module * { export * }
+}

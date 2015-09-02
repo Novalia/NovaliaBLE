@@ -1,0 +1,775 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0242810D8AC88945A47BC25EEE4E330A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E824CAB83C80B8DC008DF1D6BFD0F /* Foundation.framework */; };
+		100F8A3F90EF5444C8E15DE70E84D4D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E824CAB83C80B8DC008DF1D6BFD0F /* Foundation.framework */; };
+		127D5EE59CCA44FF8EA86F70A827FA1A /* NovaliaBLE-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 426CFEF7C77562F32B494B130E76EFCF /* NovaliaBLE-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3BDE4575632DE92F895CA574752FEE71 /* Pods-NovaliaBLE_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56007CF508EA56B7C0AEB425B18D0196 /* Pods-NovaliaBLE_Tests-dummy.m */; };
+		4B9198B37D200103CC5B50D8E75105FE /* Pods-NovaliaBLE_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5AECAB72895853257A0EEDF0499A0F8 /* Pods-NovaliaBLE_Example-dummy.m */; };
+		683E75F35AAAD3D8A596BE42EB7E4348 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1E824CAB83C80B8DC008DF1D6BFD0F /* Foundation.framework */; };
+		78B47882ED830C2FCA89C5039C01E3B5 /* NovaliaBLE-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C19F2EDB62673BE1BF0998426E8830 /* NovaliaBLE-dummy.m */; };
+		A9A6A8F43D54DCB03B9F9E1DED40C614 /* Pods-NovaliaBLE_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6406AC1558BB7BD13569DE6495206B /* Pods-NovaliaBLE_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD456AD4A0BB8E29A5CC857897435ACE /* NovaliaBLE.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BDFA3EA25B34D311787CB24F2A02E62E /* NovaliaBLE.bundle */; };
+		E0C94591B284045CCB66F7AE7084DDB9 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A1F5B69CE80B415DC3446C0641308F /* ReplaceMe.m */; };
+		E6ECEC4A4B243318CBAEEA62A405C900 /* Pods-NovaliaBLE_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FF4D3B147E7C6A296F95A1AC773B2ED /* Pods-NovaliaBLE_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DB2BD6785B50FF3942B5A42E2108D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0051EB58F8932D1F2816E7C47B57C5E;
+			remoteInfo = "NovaliaBLE-NovaliaBLE";
+		};
+		CEAE2CABA7016B4515DFAB82BB329C30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB6808E4B9D3916BFAD29CBA947823CF;
+			remoteInfo = NovaliaBLE;
+		};
+		F852C59AA89F31608DE83990BBB7E91C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB6808E4B9D3916BFAD29CBA947823CF;
+			remoteInfo = NovaliaBLE;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06B273CA8903191240F99FD9C6C73B4E /* Pods-NovaliaBLE_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NovaliaBLE_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1324939A8F295127B82E166F6851631E /* Pods-NovaliaBLE_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NovaliaBLE_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		14D56FA8190CF6F7690D71E040664642 /* NovaliaBLE.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NovaliaBLE.modulemap; sourceTree = "<group>"; };
+		1D585C775968E6AF243A5118E9E6FCF3 /* Pods-NovaliaBLE_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NovaliaBLE_Example.release.xcconfig"; sourceTree = "<group>"; };
+		250D0646CB7D34BE0BBCCFD29FE97527 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FE5C7351850E66A70AF00D0C12947E2 /* Pods-NovaliaBLE_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NovaliaBLE_Example-resources.sh"; sourceTree = "<group>"; };
+		3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "NovaliaBLE-Private.xcconfig"; sourceTree = "<group>"; };
+		426CFEF7C77562F32B494B130E76EFCF /* NovaliaBLE-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NovaliaBLE-umbrella.h"; sourceTree = "<group>"; };
+		45284A9A4B2DF015354A2F06B3A9AABC /* Pods-NovaliaBLE_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NovaliaBLE_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		46586C8C1872D254DEC1EB9C5B66F33D /* Pods-NovaliaBLE_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NovaliaBLE_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		55B2005C1F9FD9E4F84876D77BB20DCD /* Pods-NovaliaBLE_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NovaliaBLE_Tests-resources.sh"; sourceTree = "<group>"; };
+		56007CF508EA56B7C0AEB425B18D0196 /* Pods-NovaliaBLE_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NovaliaBLE_Tests-dummy.m"; sourceTree = "<group>"; };
+		56D72BB65520B1C8903DCC007A5A439B /* NovaliaBLE-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NovaliaBLE-prefix.pch"; sourceTree = "<group>"; };
+		5F79E7C10111F244560839C5D277BD7A /* NovaliaBLE.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NovaliaBLE.xcconfig; sourceTree = "<group>"; };
+		5FF4D3B147E7C6A296F95A1AC773B2ED /* Pods-NovaliaBLE_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NovaliaBLE_Example-umbrella.h"; sourceTree = "<group>"; };
+		621567DE9FAF086B66582B8B9E707816 /* NovaliaBLE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NovaliaBLE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F1E824CAB83C80B8DC008DF1D6BFD0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7ED25D98B95710F37962ECD742915D5C /* Pods-NovaliaBLE_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NovaliaBLE_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8644A1E274F21F92801BB91DF024F2FE /* Pods-NovaliaBLE_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NovaliaBLE_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		8B6E52665ECCAF63006EC94965E62FAA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91C19F2EDB62673BE1BF0998426E8830 /* NovaliaBLE-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NovaliaBLE-dummy.m"; sourceTree = "<group>"; };
+		959004329EC5D49B3AAB3A047C4E6276 /* Pods_NovaliaBLE_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A1F5B69CE80B415DC3446C0641308F /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		BA6406AC1558BB7BD13569DE6495206B /* Pods-NovaliaBLE_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NovaliaBLE_Tests-umbrella.h"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BBCBFA1908C6C655E634CBA4D0570889 /* Pods-NovaliaBLE_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NovaliaBLE_Example.modulemap"; sourceTree = "<group>"; };
+		BD57E9609F5B245F799856EC81177998 /* Pods_NovaliaBLE_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFA3EA25B34D311787CB24F2A02E62E /* NovaliaBLE.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaliaBLE.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D97528DCD302ECC399E7B41B9CCE92 /* Pods-NovaliaBLE_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NovaliaBLE_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D2F94E906F4E43F06FF628460852BC6A /* Pods-NovaliaBLE_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NovaliaBLE_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DA8D018628B0FACEF289F2E9056D780F /* Pods-NovaliaBLE_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NovaliaBLE_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EEAED51C692D05AD7298D8FCF52A5F9A /* Pods-NovaliaBLE_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NovaliaBLE_Tests.modulemap"; sourceTree = "<group>"; };
+		F5AECAB72895853257A0EEDF0499A0F8 /* Pods-NovaliaBLE_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NovaliaBLE_Example-dummy.m"; sourceTree = "<group>"; };
+		F9169A6467809D6424DABD7BD5C19AC1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		176487F2ADA8013C9904E6899C0F543B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0242810D8AC88945A47BC25EEE4E330A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		968F5F81F940A927ED74B7B8F132AD81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				683E75F35AAAD3D8A596BE42EB7E4348 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C55D6F963A3E8C7DF71A75BDE7A6AFAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100F8A3F90EF5444C8E15DE70E84D4D6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E43243B6C9F15B3159852F94408C9735 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		186CE82CEAC4BA8CBDAA61B0A0034F2F /* Pods-NovaliaBLE_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8B6E52665ECCAF63006EC94965E62FAA /* Info.plist */,
+				EEAED51C692D05AD7298D8FCF52A5F9A /* Pods-NovaliaBLE_Tests.modulemap */,
+				1324939A8F295127B82E166F6851631E /* Pods-NovaliaBLE_Tests-acknowledgements.markdown */,
+				45284A9A4B2DF015354A2F06B3A9AABC /* Pods-NovaliaBLE_Tests-acknowledgements.plist */,
+				56007CF508EA56B7C0AEB425B18D0196 /* Pods-NovaliaBLE_Tests-dummy.m */,
+				46586C8C1872D254DEC1EB9C5B66F33D /* Pods-NovaliaBLE_Tests-frameworks.sh */,
+				55B2005C1F9FD9E4F84876D77BB20DCD /* Pods-NovaliaBLE_Tests-resources.sh */,
+				BA6406AC1558BB7BD13569DE6495206B /* Pods-NovaliaBLE_Tests-umbrella.h */,
+				DA8D018628B0FACEF289F2E9056D780F /* Pods-NovaliaBLE_Tests.debug.xcconfig */,
+				D2F94E906F4E43F06FF628460852BC6A /* Pods-NovaliaBLE_Tests.release.xcconfig */,
+			);
+			name = "Pods-NovaliaBLE_Tests";
+			path = "Target Support Files/Pods-NovaliaBLE_Tests";
+			sourceTree = "<group>";
+		};
+		2D5AE572EB3BF8633290F0970D31C03E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B69F1CA63C3A7F5388F67A5E504FF708 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		311EA80A5F62D61840D84E0F8979D2DB /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA099755D884DE888C1C6775C6287796 /* NovaliaBLE */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6F1E824CAB83C80B8DC008DF1D6BFD0F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		61617A4FA166CF3CE61DBC673B913FD7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9169A6467809D6424DABD7BD5C19AC1 /* Info.plist */,
+				14D56FA8190CF6F7690D71E040664642 /* NovaliaBLE.modulemap */,
+				5F79E7C10111F244560839C5D277BD7A /* NovaliaBLE.xcconfig */,
+				3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */,
+				91C19F2EDB62673BE1BF0998426E8830 /* NovaliaBLE-dummy.m */,
+				56D72BB65520B1C8903DCC007A5A439B /* NovaliaBLE-prefix.pch */,
+				426CFEF7C77562F32B494B130E76EFCF /* NovaliaBLE-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/NovaliaBLE";
+			sourceTree = "<group>";
+		};
+		7481F1E6922155C0D27104222563042D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2A143D7AA855BDF4701D1BE96CFA345 /* Pods-NovaliaBLE_Example */,
+				186CE82CEAC4BA8CBDAA61B0A0034F2F /* Pods-NovaliaBLE_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				311EA80A5F62D61840D84E0F8979D2DB /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
+				7481F1E6922155C0D27104222563042D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B69F1CA63C3A7F5388F67A5E504FF708 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				97A1F5B69CE80B415DC3446C0641308F /* ReplaceMe.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BA099755D884DE888C1C6775C6287796 /* NovaliaBLE */ = {
+			isa = PBXGroup;
+			children = (
+				2D5AE572EB3BF8633290F0970D31C03E /* Pod */,
+				61617A4FA166CF3CE61DBC673B913FD7 /* Support Files */,
+			);
+			name = NovaliaBLE;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDFA3EA25B34D311787CB24F2A02E62E /* NovaliaBLE.bundle */,
+				621567DE9FAF086B66582B8B9E707816 /* NovaliaBLE.framework */,
+				959004329EC5D49B3AAB3A047C4E6276 /* Pods_NovaliaBLE_Example.framework */,
+				BD57E9609F5B245F799856EC81177998 /* Pods_NovaliaBLE_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2A143D7AA855BDF4701D1BE96CFA345 /* Pods-NovaliaBLE_Example */ = {
+			isa = PBXGroup;
+			children = (
+				250D0646CB7D34BE0BBCCFD29FE97527 /* Info.plist */,
+				BBCBFA1908C6C655E634CBA4D0570889 /* Pods-NovaliaBLE_Example.modulemap */,
+				7ED25D98B95710F37962ECD742915D5C /* Pods-NovaliaBLE_Example-acknowledgements.markdown */,
+				8644A1E274F21F92801BB91DF024F2FE /* Pods-NovaliaBLE_Example-acknowledgements.plist */,
+				F5AECAB72895853257A0EEDF0499A0F8 /* Pods-NovaliaBLE_Example-dummy.m */,
+				06B273CA8903191240F99FD9C6C73B4E /* Pods-NovaliaBLE_Example-frameworks.sh */,
+				2FE5C7351850E66A70AF00D0C12947E2 /* Pods-NovaliaBLE_Example-resources.sh */,
+				5FF4D3B147E7C6A296F95A1AC773B2ED /* Pods-NovaliaBLE_Example-umbrella.h */,
+				C0D97528DCD302ECC399E7B41B9CCE92 /* Pods-NovaliaBLE_Example.debug.xcconfig */,
+				1D585C775968E6AF243A5118E9E6FCF3 /* Pods-NovaliaBLE_Example.release.xcconfig */,
+			);
+			name = "Pods-NovaliaBLE_Example";
+			path = "Target Support Files/Pods-NovaliaBLE_Example";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		560F36CC80684B3A59D452335BB60BBF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6ECEC4A4B243318CBAEEA62A405C900 /* Pods-NovaliaBLE_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A129E56618DCD7EA06B02732C022F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				127D5EE59CCA44FF8EA86F70A827FA1A /* NovaliaBLE-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8685CAA47698BCF976321F7A5770592 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A6A8F43D54DCB03B9F9E1DED40C614 /* Pods-NovaliaBLE_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		919449987501E7209B9979CBBE98C448 /* Pods-NovaliaBLE_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8DC1A67E05025B974F1D0629AA556EC /* Build configuration list for PBXNativeTarget "Pods-NovaliaBLE_Tests" */;
+			buildPhases = (
+				F5B4141CE5AE4719FD65F542C6EFA7BD /* Sources */,
+				968F5F81F940A927ED74B7B8F132AD81 /* Frameworks */,
+				C8685CAA47698BCF976321F7A5770592 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D61B5A51801053CE626F54F2BC7699EA /* PBXTargetDependency */,
+			);
+			name = "Pods-NovaliaBLE_Tests";
+			productName = "Pods-NovaliaBLE_Tests";
+			productReference = BD57E9609F5B245F799856EC81177998 /* Pods_NovaliaBLE_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B89068F029F027095059C575BCA5D955 /* Pods-NovaliaBLE_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 514BD7BFFCBE3A6DD754361A2A03DD99 /* Build configuration list for PBXNativeTarget "Pods-NovaliaBLE_Example" */;
+			buildPhases = (
+				4C9F2C638BCC7435B10E4F0BFB1BB7E1 /* Sources */,
+				176487F2ADA8013C9904E6899C0F543B /* Frameworks */,
+				560F36CC80684B3A59D452335BB60BBF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10D1C1A40B26847D70FC8DEA9AD6677F /* PBXTargetDependency */,
+			);
+			name = "Pods-NovaliaBLE_Example";
+			productName = "Pods-NovaliaBLE_Example";
+			productReference = 959004329EC5D49B3AAB3A047C4E6276 /* Pods_NovaliaBLE_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB6808E4B9D3916BFAD29CBA947823CF /* NovaliaBLE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AE0BEDA3DCA2F9B2AA529F8FE5ED924 /* Build configuration list for PBXNativeTarget "NovaliaBLE" */;
+			buildPhases = (
+				58017261E7161BB5B10BA017B476B02B /* Sources */,
+				C55D6F963A3E8C7DF71A75BDE7A6AFAD /* Frameworks */,
+				0298F5D95E08348570A397FF9C90279B /* Resources */,
+				93A129E56618DCD7EA06B02732C022F5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D83D4526660E1498321B168C6F4DD47 /* PBXTargetDependency */,
+			);
+			name = NovaliaBLE;
+			productName = NovaliaBLE;
+			productReference = 621567DE9FAF086B66582B8B9E707816 /* NovaliaBLE.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F0051EB58F8932D1F2816E7C47B57C5E /* NovaliaBLE-NovaliaBLE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0568D8EE274C7F91FEFE826D587EF831 /* Build configuration list for PBXNativeTarget "NovaliaBLE-NovaliaBLE" */;
+			buildPhases = (
+				B6CF4C36CA1ABFD44E60B2FEEA237B17 /* Sources */,
+				E43243B6C9F15B3159852F94408C9735 /* Frameworks */,
+				FCC91A5BA38726C448A26A89EC35E984 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NovaliaBLE-NovaliaBLE";
+			productName = "NovaliaBLE-NovaliaBLE";
+			productReference = BDFA3EA25B34D311787CB24F2A02E62E /* NovaliaBLE.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB6808E4B9D3916BFAD29CBA947823CF /* NovaliaBLE */,
+				F0051EB58F8932D1F2816E7C47B57C5E /* NovaliaBLE-NovaliaBLE */,
+				B89068F029F027095059C575BCA5D955 /* Pods-NovaliaBLE_Example */,
+				919449987501E7209B9979CBBE98C448 /* Pods-NovaliaBLE_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0298F5D95E08348570A397FF9C90279B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD456AD4A0BB8E29A5CC857897435ACE /* NovaliaBLE.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCC91A5BA38726C448A26A89EC35E984 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C9F2C638BCC7435B10E4F0BFB1BB7E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B9198B37D200103CC5B50D8E75105FE /* Pods-NovaliaBLE_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58017261E7161BB5B10BA017B476B02B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78B47882ED830C2FCA89C5039C01E3B5 /* NovaliaBLE-dummy.m in Sources */,
+				E0C94591B284045CCB66F7AE7084DDB9 /* ReplaceMe.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6CF4C36CA1ABFD44E60B2FEEA237B17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5B4141CE5AE4719FD65F542C6EFA7BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDE4575632DE92F895CA574752FEE71 /* Pods-NovaliaBLE_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10D1C1A40B26847D70FC8DEA9AD6677F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NovaliaBLE;
+			target = CB6808E4B9D3916BFAD29CBA947823CF /* NovaliaBLE */;
+			targetProxy = CEAE2CABA7016B4515DFAB82BB329C30 /* PBXContainerItemProxy */;
+		};
+		4D83D4526660E1498321B168C6F4DD47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "NovaliaBLE-NovaliaBLE";
+			target = F0051EB58F8932D1F2816E7C47B57C5E /* NovaliaBLE-NovaliaBLE */;
+			targetProxy = 5DB2BD6785B50FF3942B5A42E2108D6F /* PBXContainerItemProxy */;
+		};
+		D61B5A51801053CE626F54F2BC7699EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NovaliaBLE;
+			target = CB6808E4B9D3916BFAD29CBA947823CF /* NovaliaBLE */;
+			targetProxy = F852C59AA89F31608DE83990BBB7E91C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03CA91998D6773EC5D02B3DB87B8353E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1681E5094F627EBBAB0782A428E1C4A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA8D018628B0FACEF289F2E9056D780F /* Pods-NovaliaBLE_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-NovaliaBLE_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-NovaliaBLE_Tests/Pods-NovaliaBLE_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_NovaliaBLE_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2CCFC7E609BF60F3B566B2DD7B19765E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D585C775968E6AF243A5118E9E6FCF3 /* Pods-NovaliaBLE_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-NovaliaBLE_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-NovaliaBLE_Example/Pods-NovaliaBLE_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_NovaliaBLE_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3F796A864B9146B040983DEDA9CE9EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F94E906F4E43F06FF628460852BC6A /* Pods-NovaliaBLE_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-NovaliaBLE_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-NovaliaBLE_Tests/Pods-NovaliaBLE_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_NovaliaBLE_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		75DC30E8E0D93EB92E0D22C488F22C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NovaliaBLE/NovaliaBLE-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NovaliaBLE/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NovaliaBLE/NovaliaBLE.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = NovaliaBLE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92D06CDC0FD7CD9058018662D53ECC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D97528DCD302ECC399E7B41B9CCE92 /* Pods-NovaliaBLE_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-NovaliaBLE_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-NovaliaBLE_Example/Pods-NovaliaBLE_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_NovaliaBLE_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		95416B4622A2210DD78BD0D378BD7932 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NovaliaBLE/NovaliaBLE-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NovaliaBLE/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NovaliaBLE/NovaliaBLE.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = NovaliaBLE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A7D40B066E9FF50C3AF0DC15620EBC94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = NovaliaBLE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		CC1857CBD0EC73EA470CAFB92D3D7798 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AA568D7E7FBD314117C698AE7E43DEB /* NovaliaBLE-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = NovaliaBLE;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0568D8EE274C7F91FEFE826D587EF831 /* Build configuration list for PBXNativeTarget "NovaliaBLE-NovaliaBLE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7D40B066E9FF50C3AF0DC15620EBC94 /* Debug */,
+				CC1857CBD0EC73EA470CAFB92D3D7798 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AE0BEDA3DCA2F9B2AA529F8FE5ED924 /* Build configuration list for PBXNativeTarget "NovaliaBLE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75DC30E8E0D93EB92E0D22C488F22C3F /* Debug */,
+				95416B4622A2210DD78BD0D378BD7932 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */,
+				03CA91998D6773EC5D02B3DB87B8353E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		514BD7BFFCBE3A6DD754361A2A03DD99 /* Build configuration list for PBXNativeTarget "Pods-NovaliaBLE_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92D06CDC0FD7CD9058018662D53ECC61 /* Debug */,
+				2CCFC7E609BF60F3B566B2DD7B19765E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8DC1A67E05025B974F1D0629AA556EC /* Build configuration list for PBXNativeTarget "Pods-NovaliaBLE_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1681E5094F627EBBAB0782A428E1C4A7 /* Debug */,
+				3F796A864B9146B040983DEDA9CE9EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

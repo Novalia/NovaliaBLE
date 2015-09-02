@@ -1,0 +1,25 @@
+{
+  "name": "NovaliaBLE",
+  "version": "0.1.0",
+  "summary": "A short description of NovaliaBLE.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/NovaliaBLE",
+  "license": "MIT",
+  "authors": {
+    "Andrew Sage": "andrew@asae.co.uk"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/NovaliaBLE.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "NovaliaBLE": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
