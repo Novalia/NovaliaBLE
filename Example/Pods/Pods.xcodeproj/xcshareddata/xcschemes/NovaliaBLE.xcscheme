@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B1A6C4E64718D69CC829422"
+               BlueprintIdentifier = "8CAC1924157F97C9C7C6CF49"
                BuildableName = "NovaliaBLE.framework"
                BlueprintName = "NovaliaBLE"
                ReferencedContainer = "container:Pods.xcodeproj">

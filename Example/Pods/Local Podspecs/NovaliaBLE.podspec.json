@@ -1,15 +1,15 @@
 {
   "name": "NovaliaBLE",
   "version": "0.1.0",
-  "summary": "A short description of NovaliaBLE.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/NovaliaBLE",
+  "summary": "For connecting to and using a Novalia BLE device.",
+  "description": "This CocoaPod provides the ability to connecting to and use a Novalia BLE device.",
+  "homepage": "https://github.com/tirami/NovaliaBLE",
   "license": "MIT",
   "authors": {
-    "Andrew Sage": "andrew@asae.co.uk"
+    "Andrew Sage": "andrew@tirami.co.uk"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/NovaliaBLE.git",
+    "git": "https://github.com/tirami/NovaliaBLE.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -21,5 +21,6 @@
     "NovaliaBLE": [
       "Pod/Assets/*.png"
     ]
-  }
+  },
+  "public_header_files": "Pod/Classes/**/*.h"
 }

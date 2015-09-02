@@ -7,8 +7,14 @@
 //
 
 #import "NOVViewController.h"
+#import "NovaliaBLEInterface.h"
 
-@interface NOVViewController ()
+@interface NOVViewController () <NovaliaBLEInterfaceDelegate, NovaliaBLEDeviceEventDelegate>
+
+@property NovaliaBLEInterface *interface;
+@property NSTimer *launchDiscoveryTimer;
+@property NovaliaBLEState previousBLEState;
+
 
 @end
 
@@ -18,12 +24,39 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self initInterfaceIfNeeded];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+- (void)initInterfaceIfNeeded {
+    if (self.interface == nil) {
+        self.interface = [[NovaliaBLEInterface alloc] initWithDelegate:self];
+        self.previousBLEState = -1;
+        self.launchDiscoveryTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startDiscovery) userInfo:nil repeats:NO];
+    }
+    
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [activityView startAnimating];
+}
+
+-(void)startDiscovery {
+    self.launchDiscoveryTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(stopDiscovery) userInfo:nil repeats:NO];
+    [self.interface startDeviceDiscovery];
+}
+
+-(void)stopDiscovery {
+    self.launchDiscoveryTimer = nil;
+    if (self.interface.delegate == self) {
+        [self.interface stopDeviceDiscovery];
+    }
 }
 
 @end

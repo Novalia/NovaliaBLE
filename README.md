@@ -22,7 +22,7 @@ pod "NovaliaBLE"
 
 ## Author
 
-Andrew Sage, andrew@asae.co.uk
+Andrew Sage, andrew@tirami.co.uk
 
 ## License
 
