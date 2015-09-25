@@ -64,9 +64,9 @@
     }
 }
 
--(void)onButtonPressed:(int)button {
-    if ([self.delegate respondsToSelector:@selector(onButtonPressed:onDevice:)]) {
-        [self.delegate onButtonPressed:button onDevice:self];
+-(void)onButtonPressed:(int)button velocity:(int)velocity {
+    if ([self.delegate respondsToSelector:@selector(onButtonPressed:velocity:onDevice:)]) {
+        [self.delegate onButtonPressed:button velocity:velocity onDevice:self];
     }
 }
 

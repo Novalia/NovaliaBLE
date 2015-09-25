@@ -28,7 +28,7 @@
 
 @optional
 
--(void)onButtonPressed:(int)button onDevice:(id)device;
+-(void)onButtonPressed:(int)button velocity:(int)velocity onDevice:(id)device;
 -(void)onRSSIUpdated:(NSNumber*)RSSI onDevice:(id)device;
 -(void)onStatusUpdated:(int)status onDevice:(id)device;
 

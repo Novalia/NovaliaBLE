@@ -495,9 +495,11 @@
     // Find which button was pressed
     char byte[5];
     [[characteristic value] getBytes:&byte length:5];
-    int integerValue = byte[3];
-    int button = integerValue;
-    [device onButtonPressed:button];
+    int note = byte[3];
+    int velocity = byte[4];
+
+    [device onButtonPressed:note
+                   velocity:velocity];
 }
 
 

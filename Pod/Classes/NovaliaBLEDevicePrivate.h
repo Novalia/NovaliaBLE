@@ -18,6 +18,6 @@
 
 -(void)updateStatus:(int)status;
 -(void)updateRSSI:(NSNumber *)RSSI;
--(void)onButtonPressed:(int)button;
+-(void)onButtonPressed:(int)button velocity:(int)velocity;
 
 @end
