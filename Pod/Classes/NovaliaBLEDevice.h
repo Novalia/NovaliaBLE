@@ -43,7 +43,7 @@
 @property (readonly) BOOL isRecognised;
 @property NSNumber *rssi;
 @property (readonly) NSUUID *uuid;
-@property (readonly) NSString *name;
+@property (readonly) NSString *deviceName;
 @property id<NovaliaBLEDeviceEventDelegate> delegate;
 
 - (NovaliaBLEDevice *) initWithUUID:(NSUUID *)uuid;

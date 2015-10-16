@@ -13,7 +13,7 @@
 
 @property (readwrite) int deviceType;
 @property (readwrite) NSUUID *uuid;
-@property (readwrite) NSString *name;
+@property (readwrite) NSString *deviceName;
 @property (readwrite) int status;
 @property (readwrite) BOOL isRecognised;
 
@@ -26,7 +26,7 @@
 @synthesize status;
 @synthesize uuid;
 @synthesize rssi;
-@synthesize name;
+@synthesize deviceName;
 @synthesize delegate;
 @synthesize isRecognised;
 
@@ -57,7 +57,7 @@
     self = [self initWithUUID:theUUID];
     
     if (self) {
-        name = theName;
+        deviceName = theName;
     }
     
     return self;
