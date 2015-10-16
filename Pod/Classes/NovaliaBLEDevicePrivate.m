@@ -26,12 +26,11 @@
 @synthesize peripheral;
 
 -(NovaliaBLEDevicePrivate *)initWithPeripheral:(CBPeripheral*)p {
-    self = [self initWithUUID:[p identifier]];
+    self = [self initWithUUID:[p identifier] andName:self.peripheral.name];
     
     if (self) {
         self.peripheral = p;
         self.isRecognised = YES;
-        self.deviceName = self.peripheral.name;
         
         [self readDeviceInfoFromPeripheral:p];
     }
