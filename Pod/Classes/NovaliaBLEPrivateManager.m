@@ -48,7 +48,7 @@
 }
 
 -(NovaliaBLEDevicePrivate *)findDeviceForPeripheral:(CBPeripheral *)peripheral {
-    id device = [[NovaliaBLEDevice alloc] initWithUUID:[peripheral identifier]];
+    id device = [[NovaliaBLEDevice alloc] initWithUUID:[peripheral identifier] andName:peripheral.name];
     return [self findDevice:device];
 }
 

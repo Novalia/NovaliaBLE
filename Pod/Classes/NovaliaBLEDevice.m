@@ -25,6 +25,7 @@
 @synthesize status;
 @synthesize uuid;
 @synthesize rssi;
+@synthesize name;
 @synthesize delegate;
 @synthesize isRecognised;
 
@@ -50,6 +51,17 @@
     
     return self;
 }
+
+- (NovaliaBLEDevice *) initWithUUID:(NSUUID *)theUUID andName:(NSString *)theName {
+    self = [self initWithUUID:theUUID];
+    
+    if (self) {
+        name = theName;
+    }
+    
+    return self;
+}
+
 
 -(BOOL)isDiscovered {
     return ((status & NovaliaBLEDeviceDiscovered) == NovaliaBLEDeviceDiscovered);
