@@ -13,6 +13,7 @@
 
 @property (readwrite) int deviceType;
 @property (readwrite) NSUUID *uuid;
+@property (readwrite) NSString *name;
 @property (readwrite) int status;
 @property (readwrite) BOOL isRecognised;
 
