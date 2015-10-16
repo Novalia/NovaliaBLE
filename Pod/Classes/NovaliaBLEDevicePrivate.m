@@ -31,6 +31,7 @@
     if (self) {
         self.peripheral = p;
         self.isRecognised = YES;
+        self.deviceName = self.peripheral.name;
         
         [self readDeviceInfoFromPeripheral:p];
     }
