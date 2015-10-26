@@ -48,8 +48,8 @@
     [manager setDelegate:d];
 }
 
-- (BOOL) startDeviceDiscovery {
-    return [manager startDiscovery];
+- (BOOL) startDeviceDiscovery:(NSString*)targetName {
+    return [manager startDiscovery:targetName];
 }
 
 - (void) stopDeviceDiscovery {

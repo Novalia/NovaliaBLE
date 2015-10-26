@@ -23,6 +23,7 @@
 @property CBUUID *novaliaServiceUUID;
 @property CBUUID *novaliaButtonCharacteristicUUID;
 @property CBUUID *appleBLEMIDICharacteristicUUID;
+@property NSString *targetDeviceName;
 
 @end
 
@@ -36,6 +37,7 @@
 @synthesize appleBLEMIDICharacteristicUUID;
 @synthesize allDevices;
 @synthesize helpers;
+@synthesize targetDeviceName;
 
 -(NovaliaBLEDevicePrivate *)findDevice:(NovaliaBLEDevice *)device {
     NSUInteger index = [allDevices indexOfObject:device];
@@ -116,8 +118,10 @@
     }
 }
 
-- (BOOL)startDiscovery {
+- (BOOL)startDiscovery:(NSString*)targetName {
     NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
+    
+    self.targetDeviceName = targetName;
     
     if (centralManager.state < CBCentralManagerStatePoweredOff) {
         NSLog(@"NovaliaBLEPrivateManager startDiscovery: Cannot start - current state = %ld.", (long)centralManager.state);
@@ -367,29 +371,32 @@
         NSLog(@"NO Recognized: %@", advertisementData);
         return;
     }
+    
+    if([peripheral.name isEqualToString:self.targetDeviceName]) {
 
-    @synchronized(self) {
-        id device = [self findDeviceForPeripheral:peripheral];
-        
-        if (device == nil) {
-            device = [[NovaliaBLEDevicePrivate alloc] initWithPeripheral:peripheral andRSSI:RSSI];
-            [device updateStatus:NovaliaBLEDeviceDiscovered];
-            [allDevices addObject:device];
+        @synchronized(self) {
+            id device = [self findDeviceForPeripheral:peripheral];
+            
+            if (device == nil) {
+                device = [[NovaliaBLEDevicePrivate alloc] initWithPeripheral:peripheral andRSSI:RSSI];
+                [device updateStatus:NovaliaBLEDeviceDiscovered];
+                [allDevices addObject:device];
+                
+                if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
+                    [delegate onDeviceListChanged: (NSArray *)allDevices];
+                }
+            } else {
+                [device updateStatus:([device status] | NovaliaBLEDeviceDiscovered)];
+                [device updateRSSI:RSSI];
+            }
             
             if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
-                [delegate onDeviceListChanged: (NSArray *)allDevices];
+                [delegate onDeviceListChanged:[self getDevicesCopy]];
             }
-        } else {
-            [device updateStatus:([device status] | NovaliaBLEDeviceDiscovered)];
-            [device updateRSSI:RSSI];
-        }
-        
-        if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
-            [delegate onDeviceListChanged:[self getDevicesCopy]];
-        }
-        
-        if ([device isDisconnected] && [delegate respondsToSelector:@selector(onDeviceDiscovered:)]) {
-            [delegate onDeviceDiscovered:device];
+            
+            if ([device isDisconnected] && [delegate respondsToSelector:@selector(onDeviceDiscovered:)]) {
+                [delegate onDeviceDiscovered:device];
+            }
         }
     }
 }
