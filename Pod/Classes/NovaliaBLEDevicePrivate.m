@@ -26,7 +26,7 @@
 @synthesize peripheral;
 
 -(NovaliaBLEDevicePrivate *)initWithPeripheral:(CBPeripheral*)p {
-    self = [self initWithUUID:[p identifier] andName:self.peripheral.name];
+    self = [self initWithUUID:[p identifier] andName:p.name];
     
     if (self) {
         self.peripheral = p;
