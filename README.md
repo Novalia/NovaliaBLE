@@ -5,25 +5,42 @@
 [![License](https://img.shields.io/cocoapods/l/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 [![Platform](https://img.shields.io/cocoapods/p/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 
-## Usage
+## Building a NovaliaBLE based app for iOS
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from the Example directory first
 
-## Requirements
+Create a new Universal Swift application in Xcode.
 
-## Installation
+Close the project in Xcode.
 
-NovaliaBLE is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## Pod Installation
 
-```ruby
-pod "NovaliaBLE"
+Ensure you have [CocoaPods](http://cocoapods.org) installed.
+
+In Terminal, go to the project directory and run:
+
+```
+pod init
 ```
 
-## Author
+Edit `Podfile` and add the following line to the target section:
 
-Andrew Sage, andrew@tirami.co.uk
+```ruby
+pod 'NovaliaBLE', :git => 'https://github.com/tirami/NovaliaBLE.git'
+```
 
-## License
+Ensure the `use_frameworks!` line is uncommented to ensure it works with Swift.
+Uncomment the `platform` line and set the required iOS version.
 
-NovaliaBLE is available under the MIT license. See the LICENSE file for more info.
+Run:
+
+```
+pod install
+```
+
+Use the Xcode workspace instead of the project file from now on.
+
+```
+open App.xcworkspace
+```
+
