@@ -29,7 +29,8 @@ Edit `Podfile` and add the following line to the target section:
 pod 'NovaliaBLE', :git => 'https://github.com/tirami/NovaliaBLE.git'
 ```
 
-Ensure the `use_frameworks!` line is uncommented to ensure it works with Swift.
+Ensure the `use_frameworks!` line is uncommented so it works with Swift.
+
 Uncomment the `platform` line and set the required iOS version.
 
 Run:
