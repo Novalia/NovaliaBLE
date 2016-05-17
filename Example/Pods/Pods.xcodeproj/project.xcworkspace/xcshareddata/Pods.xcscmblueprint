@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E4E40F087D72DFBDE6CB0B18EAC451796072DD96",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9B1393FB24161C440A57CB925F5D0FBF2ABE4F62" : 0,
+    "E4E40F087D72DFBDE6CB0B18EAC451796072DD96" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "932091F9-553B-4D5B-8379-C020241D121A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9B1393FB24161C440A57CB925F5D0FBF2ABE4F62" : "..\/..",
+    "E4E40F087D72DFBDE6CB0B18EAC451796072DD96" : "NovaliaBLE\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Pods",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Pods\/Pods.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tirami\/tfw-application-server.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9B1393FB24161C440A57CB925F5D0FBF2ABE4F62"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/andrew%2540asae.co.uk@github.com\/tirami\/NovaliaBLE.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E4E40F087D72DFBDE6CB0B18EAC451796072DD96"
+    }
+  ]
+}

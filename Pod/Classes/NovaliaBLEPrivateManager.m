@@ -372,7 +372,7 @@
         return;
     }
     
-    if([peripheral.name isEqualToString:self.targetDeviceName]) {
+    if([peripheral.name isEqualToString:self.targetDeviceName] || [self.targetDeviceName isEqualToString:@"*"]) {
 
         @synchronized(self) {
             id device = [self findDeviceForPeripheral:peripheral];

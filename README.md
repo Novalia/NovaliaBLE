@@ -75,31 +75,33 @@ var currentDevice: NovaliaBLEDevice!
 ```
 // MARK: NovaliaBLEInterface methods
     func initInterfaceIfNeeded() {
-        
+
         if(interface == nil) {
             interface = NovaliaBLEInterface(delegate: self)
             previousBLEState = BLEStateNotReady
             launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "startDiscovery", userInfo: nil, repeats: false)
         }
     }
-    
+
     func startDiscovery() {
-        
+
         launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "stopDiscovery", userInfo: nil, repeats: false)
-        
+
         if currentDevice == nil {
             // Set a status message to indicate no device connected
         }
-        
+
+        // Set the device name to be searched for e.g. novppia1
+        // Setting the device name to * searches for all devices
         self.interface.startDeviceDiscovery("novppia1")
     }
-    
+
     func stopDiscovery() {
-        
+
         if currentDevice == nil {
             // Set a status message to indicate no device connected
         }
-        
+
         launchDiscoveryTimer = nil
         self.interface.stopDeviceDiscovery()
     }
@@ -112,32 +114,32 @@ var currentDevice: NovaliaBLEDevice!
 ```
 // MARK: NovaliaBLEInterface Delegate methods
     func onDeviceDiscovered(device: NovaliaBLEDevice!) {
-        
+
         print("Device discovered")
         if currentDevice == nil {
             // Set a status message to indicate connecting to device
         }
-        
+
         var array = selectedDevices
         let index = array.indexOf(device)
-        
+
         if(index != nil) {
             array[index!] = device
         } else {
             array.append(device)
         }
-        
+
         device.delegate = self
         selectedDevices = array
         interface.connectToDevice(device)
     }
-    
+
     func onDeviceListChanged(newList: [AnyObject]!) {
-        
+
         var connected = 0
         var connecting = 0
         var disconnected = 0
-        
+
         for device: NovaliaBLEDevice in newList as! [NovaliaBLEDevice] {
             if(isDeviceConnected(device)) {
                 print("\(device.uuid.UUIDString) connected")
@@ -150,22 +152,22 @@ var currentDevice: NovaliaBLEDevice!
                 disconnected++
             }
         }
-        
+
         // This is where an indicator of how many devices are connected, connecting, disconnected should be displayed
         print(String(format:"Connected %d Connecting %d Disconnected %d", connected, connecting, disconnected))
-        
+
         let isConnecting = (connecting > 0)
-        
+
         if(isConnecting) {
             // Start any connecting animation
         } else {
             // Stop any connecting animation
         }
     }
-    
+
     func onDeviceConnected(device: NovaliaBLEDevice!) {
         // Set a status message to indicate device connected
-        
+
         if(device.deviceName == "novppia1") {
             currentDevice = device
             if(isDeviceConnected(currentDevice)) {
@@ -179,7 +181,7 @@ var currentDevice: NovaliaBLEDevice!
             print("\(device.deviceName) is not what we are looking for")
         }
     }
-    
+
     func isDeviceConnected(device: NovaliaBLEDevice) -> Bool {
         return (device.status & NovaliaBLEDeviceConnected) == NovaliaBLEDeviceConnected
     }
@@ -189,30 +191,30 @@ var currentDevice: NovaliaBLEDevice!
     func isDeviceDisconnected(device: NovaliaBLEDevice) -> Bool {
         return isDeviceConnected(device) == false && isDeviceConnecting(device) == false
     }
-    
-    
-    
+
+
+
     func onDeviceDisconnected(device: NovaliaBLEDevice!) {
         currentDevice = nil
-        
+
         // Set a status message to indicate no device connected
-        
+
         // Try to reconnect
         interface.connectToDevice(device)
     }
-    
-    
+
+
     func onBLEStateChanged(state: NovaliaBLEState) {
-        
+
         if(previousBLEState == state) {
             return
         }
-        
+
         previousBLEState = state
-        
+
         var title = ""
         var message = ""
-        
+
         switch state.rawValue {
         case BLEStateOff.rawValue:
             title = "Bluettoth Power"
@@ -225,17 +227,17 @@ var currentDevice: NovaliaBLEDevice!
             message = "Bluetooth service on your device does not seem to be ready. It may be initialising or restarting."
         default: ()
         }
-        
+
         if(!title.isEmpty) {
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
-    
+
     func onButtonPressed(button: Int32, velocity: Int32, onDevice device: AnyObject!) {
         print("Button pressed \(button) on device \(device.UUIDString)")
-        
+
         // Now do something in response to a button being pressed
     }
 
