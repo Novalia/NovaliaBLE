@@ -23,6 +23,8 @@
 @property CBUUID *novaliaServiceUUID;
 @property CBUUID *novaliaButtonCharacteristicUUID;
 @property CBUUID *appleBLEMIDICharacteristicUUID;
+@property CBUUID *primaryServiceUUID;
+@property CBUUID *primaryServiceSerialNumberCharacteristicUUID;
 @property NSString *targetDeviceName;
 
 @end
@@ -35,6 +37,8 @@
 @synthesize novaliaServiceUUID;
 @synthesize novaliaButtonCharacteristicUUID;
 @synthesize appleBLEMIDICharacteristicUUID;
+@synthesize primaryServiceUUID;
+@synthesize primaryServiceSerialNumberCharacteristicUUID;
 @synthesize allDevices;
 @synthesize helpers;
 @synthesize targetDeviceName;
@@ -78,6 +82,9 @@
         NSLog(@"novaliaServiceUUID = %@", novaliaServiceUUID.UUIDString);
         novaliaButtonCharacteristicUUID = [CBUUID UUIDWithInteger:NOVALIA_BUTTON_CHARACTERISTIC_UUID];
         appleBLEMIDICharacteristicUUID = [CBUUID UUIDWithString:NOVALIA_STANDARD_BUTTON_CHARACTERISTIC_UUID];
+        primaryServiceUUID = [CBUUID UUIDWithInteger:PRIMARY_SERVICE_DEVICE_INFORMATION_UUID];
+        primaryServiceSerialNumberCharacteristicUUID = [CBUUID UUIDWithInteger:PRIMARY_SERIAL_NUMBER_CHARACTERISTIC_UUID];
+        
         centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         allDevices = [[NSMutableArray alloc] init];
         helpers = [[NSMutableArray alloc] init];
@@ -362,7 +369,13 @@
     for (CBUUID *uuid in advertisedUUIDs) {
         if ([uuid isEqual:novaliaServiceUUID]) {
             isRecognised = YES;
-            NSLog(@"YES Recognized: %@", advertisementData);
+            NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
+            break;
+        }
+        
+        if ([uuid isEqual:primaryServiceUUID]) {
+            isRecognised = YES;
+            NSLog(@"YES Recognized as primary service: %@", advertisementData);
             break;
         }
     }
