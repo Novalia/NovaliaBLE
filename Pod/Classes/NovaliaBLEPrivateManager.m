@@ -140,7 +140,7 @@
         return NO;
     }
     
-//#define SEARCH_ALL_DEVICES
+#define SEARCH_ALL_DEVICES
 #ifdef SEARCH_ALL_DEVICES
     // Set services array to nil if we want to scan for all devices
     NSArray *services = [[NSArray alloc] initWithObjects:nil];
