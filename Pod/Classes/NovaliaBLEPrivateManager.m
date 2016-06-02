@@ -140,13 +140,13 @@
         return NO;
     }
     
-#define SEARCH_ALL_DEVICES
+//#define SEARCH_ALL_DEVICES
 #ifdef SEARCH_ALL_DEVICES
     // Set services array to nil if we want to scan for all devices
     NSArray *services = [[NSArray alloc] initWithObjects:nil];
 #else
     // Set services array to list of service UUIDs if we want specific devices
-    NSArray *services = [[NSArray alloc] initWithObjects:novaliaServiceUUID, nil];
+    NSArray *services = [[NSArray alloc] initWithObjects:novaliaServiceUUID, primaryServiceUUID, nil];
 #endif
     
     NSMutableDictionary *options = [[NSMutableDictionary alloc] initWithCapacity:1];
