@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NovaliaBLE"
-  s.version          = "0.1.0"
+  s.version          = "0.1.2"
   s.summary          = "For connecting to and using a Novalia BLE device."
 
 # This description is used to generate tags and improve search results.
@@ -25,9 +25,9 @@ This CocoaPod provides the ability to connecting to and use a Novalia BLE device
   s.license          = 'MIT'
   s.author           = { "Andrew Sage" => "andrew@tirami.co.uk" }
   s.source           = { :git => "https://github.com/tirami/NovaliaBLE.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/symboticaandrew'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
