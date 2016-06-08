@@ -24,7 +24,7 @@ This CocoaPod provides the ability to connecting to and use a Novalia BLE device
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Andrew Sage" => "andrew@tirami.co.uk" }
-  s.source           = { :git => "https://github.com/tirami/NovaliaBLE.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/novalia/NovaliaBLE.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/symboticaandrew'
 
   s.platform     = :ios, '9.0'
