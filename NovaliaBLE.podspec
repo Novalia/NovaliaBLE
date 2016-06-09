@@ -29,6 +29,7 @@ This CocoaPod provides the ability to connecting to and use a Novalia BLE device
 
   s.platform     = :ios, '9.0'
   s.requires_arc = true
+  s.module_name = 'NovaliaBLE'
 
   s.source_files = 'Pod/Classes/**/*'
   #s.resource_bundles = {
