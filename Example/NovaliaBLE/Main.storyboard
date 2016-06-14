@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Device Controller-->
         <scene sceneID="wQg-tq-qST">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="NOVViewController" sceneMemberID="viewController">
+                <viewController id="whP-gf-Uak" customClass="DeviceController" customModule="NovaliaBLE_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
@@ -16,8 +17,60 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtN-ct-LGK">
+                                <rect key="frame" x="264" y="28" width="72" height="30"/>
+                                <state key="normal" title="Start Scan"/>
+                                <connections>
+                                    <action selector="scanButtonTapped:" destination="whP-gf-Uak" eventType="touchUpInside" id="n3D-4w-fpD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOM-wQ-GMY">
+                                <rect key="frame" x="20" y="66" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WX-GJ-VaU">
+                                <rect key="frame" x="20" y="95" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHl-ro-QLR">
+                                <rect key="frame" x="20" y="124" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hOM-wQ-GMY" firstAttribute="top" secondItem="xtN-ct-LGK" secondAttribute="bottom" constant="8" symbolic="YES" id="2LR-vB-9je"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hOM-wQ-GMY" secondAttribute="trailing" id="CuH-ZB-JFg"/>
+                            <constraint firstItem="xtN-ct-LGK" firstAttribute="leading" secondItem="hOM-wQ-GMY" secondAttribute="trailing" constant="98" id="Fu4-dL-cVj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0WX-GJ-VaU" secondAttribute="trailing" id="NHw-iN-mA9"/>
+                            <constraint firstItem="0WX-GJ-VaU" firstAttribute="top" secondItem="hOM-wQ-GMY" secondAttribute="bottom" constant="8" symbolic="YES" id="TfU-5E-0TN"/>
+                            <constraint firstItem="xtN-ct-LGK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZD5-pE-K76"/>
+                            <constraint firstItem="xtN-ct-LGK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYv-Da-yQt"/>
+                            <constraint firstItem="0WX-GJ-VaU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="f4Z-ni-dqg"/>
+                            <constraint firstItem="hOM-wQ-GMY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="gnH-F4-V83"/>
+                            <constraint firstItem="IHl-ro-QLR" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="owv-qR-Gbc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IHl-ro-QLR" secondAttribute="trailing" id="vhm-b7-lwL"/>
+                            <constraint firstItem="IHl-ro-QLR" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" symbolic="YES" id="w2y-j5-VbG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fu4-dL-cVj"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="connectionStatusLabel" destination="hOM-wQ-GMY" id="7Zu-pH-rPN"/>
+                        <outlet property="deviceNameLabel" destination="0WX-GJ-VaU" id="sed-h7-IwW"/>
+                        <outlet property="inputLabel" destination="IHl-ro-QLR" id="cID-YS-1d2"/>
+                        <outlet property="scanButton" destination="xtN-ct-LGK" id="UoP-Nf-ONc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

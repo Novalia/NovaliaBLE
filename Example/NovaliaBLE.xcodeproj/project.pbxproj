@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1807EB9C846199C42F7F1CE3 /* Pods_NovaliaBLE_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108E47F9CBCDB6DD8F470C63 /* Pods_NovaliaBLE_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		49A57AB31D10599A00A18E19 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A57AB21D10599A00A18E19 /* DeviceController.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* NOVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* NOVAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* NOVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* NOVViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,6 +39,8 @@
 		01A6421B74BADCFF3F1A3922 /* Pods-NovaliaBLE_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaliaBLE_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NovaliaBLE_Example/Pods-NovaliaBLE_Example.release.xcconfig"; sourceTree = "<group>"; };
 		108E47F9CBCDB6DD8F470C63 /* Pods_NovaliaBLE_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1B7EB77767C9E68E61A7E3 /* NovaliaBLE.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NovaliaBLE.podspec; path = ../NovaliaBLE.podspec; sourceTree = "<group>"; };
+		49A57AB11D10599A00A18E19 /* NovaliaBLE_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NovaliaBLE_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		49A57AB21D10599A00A18E19 /* DeviceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
 		4BF4BD7FE83818C24FABB41B /* Pods_NovaliaBLE_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FD1B47C1F6AD4585033FEB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* NovaliaBLE_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovaliaBLE_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +53,6 @@
 		6003F59B195388D20070C39A /* NovaliaBLE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NovaliaBLE-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* NOVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NOVAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* NOVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NOVAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* NOVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NOVViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* NOVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NOVViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* NovaliaBLE_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovaliaBLE_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -133,10 +133,10 @@
 				6003F59C195388D20070C39A /* NOVAppDelegate.h */,
 				6003F59D195388D20070C39A /* NOVAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* NOVViewController.h */,
-				6003F5A6195388D20070C39A /* NOVViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				49A57AB21D10599A00A18E19 /* DeviceController.swift */,
+				49A57AB11D10599A00A18E19 /* NovaliaBLE_Example-Bridging-Header.h */,
 			);
 			name = "Example for NovaliaBLE";
 			path = NovaliaBLE;
@@ -244,6 +244,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NOV;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Andrew Sage";
 				TargetAttributes = {
@@ -391,7 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* NOVAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* NOVViewController.m in Sources */,
+				49A57AB31D10599A00A18E19 /* DeviceController.swift in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,11 +513,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovaliaBLE/NovaliaBLE-Prefix.pch";
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_MODULE_NAME = NovaliaBLE_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,11 +534,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovaliaBLE/NovaliaBLE-Prefix.pch";
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_MODULE_NAME = NovaliaBLE_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
