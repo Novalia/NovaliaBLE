@@ -79,13 +79,13 @@ var currentDevice: NovaliaBLEDevice!
         if(interface == nil) {
             interface = NovaliaBLEInterface(delegate: self)
             previousBLEState = BLEStateNotReady
-            launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "startDiscovery", userInfo: nil, repeats: false)
+            launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(startDiscovery), userInfo: nil, repeats: false)
         }
     }
 
     func startDiscovery() {
 
-        launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "stopDiscovery", userInfo: nil, repeats: false)
+        launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(stopDiscovery), userInfo: nil, repeats: false)
 
         if currentDevice == nil {
             // Set a status message to indicate no device connected
@@ -143,13 +143,13 @@ var currentDevice: NovaliaBLEDevice!
         for device: NovaliaBLEDevice in newList as! [NovaliaBLEDevice] {
             if(isDeviceConnected(device)) {
                 print("\(device.uuid.UUIDString) connected")
-                connected++
+                connected += 1
             } else if(isDeviceConnecting(device)) {
                 print("\(device.uuid.UUIDString) connecting")
-                connecting++
+                connecting += 1
             } else if(isDeviceDisconnected(device)) {
                 print("\(device.uuid.UUIDString) disconnected")
-                disconnected++
+                disconnected += 1
             }
         }
 
