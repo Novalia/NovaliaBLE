@@ -40,6 +40,7 @@
         uuid = theUUID;
         isRecognised = NO;
         deviceType = NovaliaBLEDeviceTypeOther;
+        macAddress = @"";
     }
     
     return self;
