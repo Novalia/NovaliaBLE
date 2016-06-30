@@ -11,6 +11,7 @@
 @interface NovaliaBLEDevicePrivate()
 
 @property int status;
+@property NSString* macAddress;
 @property BOOL isRecognised;
 @property int deviceType;
 
@@ -21,6 +22,7 @@
 @implementation NovaliaBLEDevicePrivate
 
 @synthesize status;
+@synthesize macAddress;
 @synthesize isRecognised;
 @synthesize deviceType;
 @synthesize peripheral;
@@ -46,6 +48,13 @@
     }
     
     return self;
+}
+
+-(void)updateMACAddress:(NSString *)macAddress {
+    [self setMacAddress:macAddress];
+    if ([self.delegate respondsToSelector:@selector(onMACAddressUpdated:onDevice:)]) {
+        [self.delegate onMACAddressUpdated:macAddress onDevice:self];
+    }
 }
 
 -(void)updateStatus:(int)s {

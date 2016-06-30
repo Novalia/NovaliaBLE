@@ -31,6 +31,7 @@
 -(void)onButtonPressed:(int)button velocity:(int)velocity onDevice:(id)device;
 -(void)onRSSIUpdated:(NSNumber*)RSSI onDevice:(id)device;
 -(void)onStatusUpdated:(int)status onDevice:(id)device;
+-(void)onMACAddressUpdated:(NSString*)macAddress onDevice:(id)device;
 
 @end
 
@@ -41,9 +42,10 @@
 @property (readonly) int deviceType;
 @property (readonly) int status;
 @property (readonly) BOOL isRecognised;
-@property NSNumber *rssi;
+@property NSNumber *rssi; // Signal strength
 @property (readonly) NSUUID *uuid;
 @property (readonly) NSString *deviceName;
+@property (readonly) NSString *macAddress;
 @property id<NovaliaBLEDeviceEventDelegate> delegate;
 
 - (NovaliaBLEDevice *) initWithUUID:(NSUUID *)uuid;

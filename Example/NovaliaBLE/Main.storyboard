@@ -28,39 +28,49 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOM-wQ-GMY">
                                 <rect key="frame" x="20" y="66" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WX-GJ-VaU">
                                 <rect key="frame" x="20" y="95" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHl-ro-QLR">
-                                <rect key="frame" x="20" y="124" width="560" height="21"/>
+                                <rect key="frame" x="20" y="153" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAC address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlS-EE-2pp">
+                                <rect key="frame" x="249" y="124" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IHl-ro-QLR" firstAttribute="top" secondItem="KlS-EE-2pp" secondAttribute="bottom" constant="8" symbolic="YES" id="0Rp-CZ-2rB"/>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="top" secondItem="xtN-ct-LGK" secondAttribute="bottom" constant="8" symbolic="YES" id="2LR-vB-9je"/>
+                            <constraint firstItem="KlS-EE-2pp" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="8bG-JI-Ape"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hOM-wQ-GMY" secondAttribute="trailing" id="CuH-ZB-JFg"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="leading" secondItem="hOM-wQ-GMY" secondAttribute="trailing" constant="98" id="Fu4-dL-cVj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0WX-GJ-VaU" secondAttribute="trailing" id="NHw-iN-mA9"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="top" secondItem="hOM-wQ-GMY" secondAttribute="bottom" constant="8" symbolic="YES" id="TfU-5E-0TN"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZD5-pE-K76"/>
+                            <constraint firstItem="KlS-EE-2pp" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" id="ZKF-Ae-tKu"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYv-Da-yQt"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="f4Z-ni-dqg"/>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="gnH-F4-V83"/>
                             <constraint firstItem="IHl-ro-QLR" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="owv-qR-Gbc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IHl-ro-QLR" secondAttribute="trailing" id="vhm-b7-lwL"/>
-                            <constraint firstItem="IHl-ro-QLR" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" symbolic="YES" id="w2y-j5-VbG"/>
+                            <constraint firstItem="IHl-ro-QLR" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="100" id="w2y-j5-VbG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="w2y-j5-VbG"/>
                                 <exclude reference="Fu4-dL-cVj"/>
                             </mask>
                         </variation>
@@ -69,6 +79,7 @@
                         <outlet property="connectionStatusLabel" destination="hOM-wQ-GMY" id="7Zu-pH-rPN"/>
                         <outlet property="deviceNameLabel" destination="0WX-GJ-VaU" id="sed-h7-IwW"/>
                         <outlet property="inputLabel" destination="IHl-ro-QLR" id="cID-YS-1d2"/>
+                        <outlet property="macAddressLabel" destination="KlS-EE-2pp" id="Sgb-xC-ddc"/>
                         <outlet property="scanButton" destination="xtN-ct-LGK" id="UoP-Nf-ONc"/>
                     </connections>
                 </viewController>

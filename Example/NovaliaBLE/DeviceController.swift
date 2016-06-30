@@ -23,6 +23,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var inputLabel: UILabel!
+    @IBOutlet weak var macAddressLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -137,6 +138,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         self.deviceNameLabel.text = currentDevice.deviceName
         
+        
         if(isDeviceConnected(currentDevice)) {
             print("\(currentDevice.uuid.UUIDString) connected")
         } else if(isDeviceConnecting(currentDevice)) {
@@ -155,8 +157,6 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     func isDeviceDisconnected(device: NovaliaBLEDevice) -> Bool {
         return isDeviceConnected(device) == false && isDeviceConnecting(device) == false
     }
-    
-    
     
     func onDeviceDisconnected(device: NovaliaBLEDevice!) {
         currentDevice = nil
@@ -206,7 +206,13 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         // Now do something in response to a button being pressed
         self.inputLabel.text = "Velocity \(velocity) on button \(button) on device \(device.uuid.UUIDString)"
     }
-
+    
+    
+    // MARK: NovaliaBLEDeviceEventDelegate methods
+    func onMACAddressUpdated(macAddress: String!, onDevice device: AnyObject!) {
+        print("MAC address \(macAddress) device \(device.macAddress)")
+        self.macAddressLabel.text = device.macAddress
+    }
 
 
 }

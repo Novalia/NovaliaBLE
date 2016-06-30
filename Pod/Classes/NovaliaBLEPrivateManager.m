@@ -140,7 +140,7 @@
         return NO;
     }
     
-//#define SEARCH_ALL_DEVICES
+#define SEARCH_ALL_DEVICES
 #ifdef SEARCH_ALL_DEVICES
     // Set services array to nil if we want to scan for all devices
     NSArray *services = [[NSArray alloc] initWithObjects:nil];
@@ -312,14 +312,25 @@
         return;
     }
     
-    CBService *service = [self findServiceFromUUID:novaliaServiceUUID onPeripheral:peripheral];
-    [peripheral discoverCharacteristics:nil forService:service];
+    //CBService *service = [self findServiceFromUUID:novaliaServiceUUID onPeripheral:peripheral];
+    //[peripheral discoverCharacteristics:nil forService:service];
+    
+    for(CBService *service in peripheral.services) {
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     // todo: handle errors
     NSArray *characteristics = (service == nil) ? nil : service.characteristics;
     NSLog(@"  Characteristics: %@\n  Error: %@", characteristics, error);
+    
+    
+    if ([self isCBUUID:service.UUID equalTo:primaryServiceUUID]) {
+        for(CBCharacteristic *characteristic in characteristics) {
+            [peripheral readValueForCharacteristic:characteristic];
+        }
+    }
     
     CBCharacteristic *characteristic = [self findCharacteristicFromUUID:appleBLEMIDICharacteristicUUID
                                                          onService:service];
@@ -495,15 +506,31 @@
     }
      */
     
-    if ([[characteristic UUID] isEqual:appleBLEMIDICharacteristicUUID] == NO) {
-        return;
-    }
-    
-    id device = [self findDeviceForPeripheral:peripheral];
+    NovaliaBLEDevicePrivate* device = [self findDeviceForPeripheral:peripheral];
     
     if (device == nil) {
         return;
     }
+    
+    if ([[characteristic UUID] isEqual:appleBLEMIDICharacteristicUUID] == NO) {
+        
+        NSData *data = characteristic.value;
+        NSLog(@"Characteristic %@ value %@", characteristic, characteristic.value);
+        if([characteristic.UUID.description isEqualToString:@"Model Number String"]) {
+            uint8_t *bytes = (uint8_t*)data.bytes;
+            NSString *macAddressString = [NSString stringWithFormat: @"%02x:%02x:%02x:%02x:%02x:%02x",
+                                          bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
+            NSLog(@"MAC address %@", macAddressString);
+            [device updateMACAddress:macAddressString];
+            NSLog(@"MAC address on device: %@", device.macAddress);
+        } else {
+            NSLog(@"UUID: [%@]", characteristic.UUID);
+            NSLog(@"Data: %@",  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        }
+        
+        return;
+    }
+
     
     if ([delegate respondsToSelector:@selector(onDeviceUpdatedValue:)]) {
         [delegate onDeviceUpdatedValue:characteristic.value];
@@ -554,7 +581,7 @@
 -(CBCharacteristic *) findCharacteristicFromUUID:(CBUUID *)uuid onService:(CBService*)service {
     NSArray *characteristics = [service characteristics];
     
-    NSLog(@"NovaliaBLEPrivateManager findCharacteristicFromUUID");
+    NSLog(@"NovaliaBLEPrivateManager findCharacteristicFromUUID for service %@", service.UUID.UUIDString);
     for(int i=0; i < characteristics.count; i++) {
         CBCharacteristic *c = [characteristics objectAtIndex:i];
         NSLog(@"Checking %@ == %@", c.UUID, uuid);

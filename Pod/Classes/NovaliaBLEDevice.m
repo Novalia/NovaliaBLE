@@ -14,6 +14,7 @@
 @property (readwrite) int deviceType;
 @property (readwrite) NSUUID *uuid;
 @property (readwrite) NSString *deviceName;
+@property (readwrite) NSString *macAddress;
 @property (readwrite) int status;
 @property (readwrite) BOOL isRecognised;
 
@@ -27,6 +28,7 @@
 @synthesize uuid;
 @synthesize rssi;
 @synthesize deviceName;
+@synthesize macAddress;
 @synthesize delegate;
 @synthesize isRecognised;
 
