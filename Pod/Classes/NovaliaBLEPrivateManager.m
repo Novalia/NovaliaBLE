@@ -521,9 +521,12 @@
         NSData *data = characteristic.value;
         NSLog(@"Characteristic %@ value %@", characteristic, characteristic.value);
         if([characteristic.UUID.description isEqualToString:@"Model Number String"]) {
+            NSString *macAddressString = @"Firmware does not provide MAC address";
             uint8_t *bytes = (uint8_t*)data.bytes;
-            NSString *macAddressString = [NSString stringWithFormat: @"%02x:%02x:%02x:%02x:%02x:%02x",
+            if(bytes) {
+               macAddressString = [NSString stringWithFormat: @"%02x:%02x:%02x:%02x:%02x:%02x",
                                           bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
+            }
             NSLog(@"MAC address %@", macAddressString);
             [device updateMACAddress:macAddressString];
             NSLog(@"MAC address on device: %@", device.macAddress);
