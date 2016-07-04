@@ -383,12 +383,13 @@
             NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
             break;
         }
-        
+        /*
         if ([uuid isEqual:primaryServiceUUID]) {
             isRecognised = YES;
             NSLog(@"YES Recognized as primary service: %@", advertisementData);
             break;
         }
+         */
     }
     
     if (isRecognised == NO) {
@@ -406,6 +407,9 @@
                 [device updateStatus:NovaliaBLEDeviceDiscovered];
                 [allDevices addObject:device];
                 
+                // The following line triggers an auto connect
+                [centralManager connectPeripheral:peripheral options:nil];
+            
                 if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
                     [delegate onDeviceListChanged: (NSArray *)allDevices];
                 }

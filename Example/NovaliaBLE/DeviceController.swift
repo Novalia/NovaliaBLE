@@ -95,7 +95,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         device.delegate = self
         selectedDevices = array
-        interface.connectToDevice(device)
+        //interface.connectToDevice(device)
     }
     
     func onDeviceListChanged(newList: [AnyObject]!) {
