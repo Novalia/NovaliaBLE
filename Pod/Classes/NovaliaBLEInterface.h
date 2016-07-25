@@ -13,6 +13,7 @@
 @interface NovaliaBLEInterface : NSObject
 
 @property (nonatomic, strong) id<NovaliaBLEInterfaceDelegate> delegate;
+@property BOOL diagnosticsMode;
 
 -(NovaliaBLEInterface *)init;
 -(NovaliaBLEInterface *)initWithDelegate:(id <NovaliaBLEInterfaceDelegate>)delegate;
@@ -27,5 +28,6 @@
 -(NovaliaBLEState)bluetoothState;
 
 -(void)writeData:(NSData*)data toDevice:(NovaliaBLEDevice *)device;
+
 
 @end

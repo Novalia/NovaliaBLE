@@ -22,6 +22,7 @@
 
 @synthesize delegate = _delegate;
 @synthesize manager;
+@synthesize diagnosticsMode = _diagnosticsMode;
 
 - (NovaliaBLEInterface *) init {
     self = [super init];
@@ -46,6 +47,11 @@
 - (void)setDelegate:(id<NovaliaBLEInterfaceDelegate>)d {
     _delegate = d;
     [manager setDelegate:d];
+}
+
+- (void)setDiagnosticsMode:(BOOL)diagnosticsMode {
+    _diagnosticsMode = diagnosticsMode;
+    [manager setDiagnosticsMode:diagnosticsMode];
 }
 
 - (BOOL) startDeviceDiscovery:(NSString*)targetName {

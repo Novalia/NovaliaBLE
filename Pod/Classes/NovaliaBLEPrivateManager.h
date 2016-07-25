@@ -16,6 +16,7 @@
 
 @property (nonatomic, assign) id <NovaliaBLEInterfaceDelegate> delegate;
 @property (readonly) NSMutableArray *connectedDevices;
+@property BOOL diagnosticsMode;
 
 -(BOOL)startDiscovery:(NSString*)targetName;
 -(void)stopDiscovery;

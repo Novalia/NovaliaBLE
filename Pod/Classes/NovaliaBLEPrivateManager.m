@@ -33,6 +33,7 @@
 @implementation NovaliaBLEPrivateManager
 
 @synthesize delegate;
+@synthesize diagnosticsMode;
 @synthesize centralManager;
 @synthesize novaliaServiceUUID;
 @synthesize novaliaButtonCharacteristicUUID;
@@ -126,7 +127,9 @@
 }
 
 - (BOOL)startDiscovery:(NSString*)targetName {
-    NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
+    }
     
     self.targetDeviceName = targetName;
     
@@ -157,7 +160,9 @@
     // Look only for devices that match our service
     [centralManager scanForPeripheralsWithServices:services options:nil];
     
-    NSLog(@"NovaliaBLEPrivateManager startDiscovery: Discovery should have started.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager startDiscovery: Discovery should have started.");
+    }
     
     if ([delegate respondsToSelector:@selector(onDiscoveryStarted)]) {
         [delegate onDiscoveryStarted];
@@ -206,7 +211,9 @@
 }
 
 - (void) connectToDevices:(NSArray *)devicesToConnect {
-    NSLog(@"NovaliaBLEPrivateManager connectToDevices");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager connectToDevices");
+    }
     
     NSMutableArray *identifiers = [[NSMutableArray alloc] initWithCapacity:[devicesToConnect count]];
     
@@ -249,7 +256,9 @@
 }
 
 - (void)stopDiscovery {
-    NSLog(@"NovaliaBLEPrivateManager stopDiscovery: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager stopDiscovery: called.");
+    }
     
     // We're not returning because we still want to call onDiscoveryStopped
     // in case the user interface needs to be updated.xw
@@ -267,7 +276,9 @@
 // CBCentralManagerDelegate Protocol Implementation:
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: called.");
+    }
     
     if (central != centralManager) {
         NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Unknown Manager");
@@ -279,7 +290,9 @@
     CBCentralManagerState state = central.state;
     NovaliaBLEState bleState = [self bluetoothStatusForCentralState:state];
     
-    NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Current State = %ld %@", (long)state, [NovaliaBLEPrivateManager getCBCentralStateName:state]);
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Current State = %ld %@", (long)state, [NovaliaBLEPrivateManager getCBCentralStateName:state]);
+    }
     
     if ([delegate respondsToSelector:@selector(onBLEStateChanged:)]) {
         [delegate onBLEStateChanged:bleState];
@@ -542,8 +555,10 @@
     if ([delegate respondsToSelector:@selector(onDeviceUpdatedValue:)]) {
         [delegate onDeviceUpdatedValue:characteristic.value];
     } else {
-        NSLog(@"NovaliaBLEPrivateManager peripheral:didUpdateValueForCharacteristic: %@", characteristic);
-        NSLog(@"Value: %@", characteristic.value);
+        if(diagnosticsMode) {
+            NSLog(@"NovaliaBLEPrivateManager peripheral:didUpdateValueForCharacteristic: %@", characteristic);
+            NSLog(@"Value: %@", characteristic.value);
+        }
     }
     
     // Find which button was pressed

@@ -43,6 +43,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         if(interface == nil) {
             interface = NovaliaBLEInterface(delegate: self)
+            interface.diagnosticsMode = true
             previousBLEState = BLEStateNotReady
             launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(startDiscovery), userInfo: nil, repeats: false)
         }
