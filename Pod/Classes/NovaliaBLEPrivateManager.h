@@ -24,6 +24,7 @@
 -(void)connectToDevices:(NSArray *)devices;
 -(void)disconnectFromDevice:(NovaliaBLEDevice *)device;
 -(NSArray *)getDevicesCopy;
+-(void)forgetAllDevices;
 -(NSArray*)retrieveDevicesWithIdentifiers:(NSArray *)identifiers;
 -(NovaliaBLEState)bluetoothState;
 -(void)writeData:(NSData*)data toDevice:(NovaliaBLEDevice *)device;

@@ -670,6 +670,10 @@
     return (NSArray *)allDevices.copy;
 }
 
+- (void)forgetAllDevices {
+    [allDevices removeAllObjects];
+}
+
 -(NovaliaBLEState)bluetoothState {
     return [self bluetoothStatusForCentralState:[centralManager state]];
 }

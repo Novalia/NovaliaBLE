@@ -25,6 +25,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     @IBOutlet weak var inputLabel: UILabel!
     @IBOutlet weak var macAddressLabel: UILabel!
     
+    @IBOutlet weak var disconnectButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,17 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         startDiscovery()
     }
     
+    @IBAction func disconnectButtonTapped(sender: AnyObject) {
+        if currentDevice != nil {
+            self.interface.disconnectFromDevice(currentDevice)
+        }
+    }
+    
+    @IBAction func reconnectButtonTapped(sender: AnyObject) {
+        if currentDevice != nil {
+            self.interface.connectToDevice(currentDevice)
+        }
+    }
     
     // MARK: NovaliaBLEInterface methods
     func initInterfaceIfNeeded() {
@@ -160,12 +172,12 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     }
     
     func onDeviceDisconnected(device: NovaliaBLEDevice!) {
-        currentDevice = nil
+        //currentDevice = nil
         
         // Set a status message to indicate no device connected
         
         // Try to reconnect
-        interface.connectToDevice(device)
+        //interface.connectToDevice(device)
     }
     
     

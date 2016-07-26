@@ -21,6 +21,7 @@
 -(void)stopDeviceDiscovery;
 -(BOOL)isConnectedToDevice:(NovaliaBLEDevice *)device;
 -(NSArray*)devices;
+-(void)forgetAllDevices;
 -(void)connectToDevices:(NSArray *)devices;
 -(void)connectToDevice:(NovaliaBLEDevice *)device;
 -(void)disconnectFromDevice:(NovaliaBLEDevice *)device;

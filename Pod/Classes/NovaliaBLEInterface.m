@@ -70,6 +70,10 @@
     return [manager getDevicesCopy];
 }
 
+- (void)forgetAllDevices {
+    [manager forgetAllDevices];
+}
+
 - (void) connectToDevices:(NSArray *)devices {
     [manager connectToDevices:devices];
 }

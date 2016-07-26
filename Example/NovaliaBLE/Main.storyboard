@@ -49,6 +49,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kog-xZ-6cY">
+                                <rect key="frame" x="261" y="562" width="78" height="30"/>
+                                <state key="normal" title="Disconnect"/>
+                                <connections>
+                                    <action selector="disconnectButtonTapped:" destination="whP-gf-Uak" eventType="touchUpInside" id="uj6-id-hih"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZK-S1-I0z">
+                                <rect key="frame" x="263" y="524" width="74" height="30"/>
+                                <state key="normal" title="Reconnect"/>
+                                <connections>
+                                    <action selector="reconnectButtonTapped:" destination="whP-gf-Uak" eventType="touchUpInside" id="XJx-ZH-1hr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,12 +70,16 @@
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="top" secondItem="xtN-ct-LGK" secondAttribute="bottom" constant="8" symbolic="YES" id="2LR-vB-9je"/>
                             <constraint firstItem="KlS-EE-2pp" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="8bG-JI-Ape"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hOM-wQ-GMY" secondAttribute="trailing" id="CuH-ZB-JFg"/>
+                            <constraint firstItem="KZK-S1-I0z" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="DH7-iC-xHY"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="leading" secondItem="hOM-wQ-GMY" secondAttribute="trailing" constant="98" id="Fu4-dL-cVj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0WX-GJ-VaU" secondAttribute="trailing" id="NHw-iN-mA9"/>
+                            <constraint firstItem="kog-xZ-6cY" firstAttribute="top" secondItem="KZK-S1-I0z" secondAttribute="bottom" constant="8" symbolic="YES" id="T7e-d1-jDz"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="top" secondItem="hOM-wQ-GMY" secondAttribute="bottom" constant="8" symbolic="YES" id="TfU-5E-0TN"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="kog-xZ-6cY" secondAttribute="bottom" constant="8" symbolic="YES" id="TxF-Tg-ttl"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZD5-pE-K76"/>
                             <constraint firstItem="KlS-EE-2pp" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" id="ZKF-Ae-tKu"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYv-Da-yQt"/>
+                            <constraint firstItem="kog-xZ-6cY" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="eoB-Nb-Ndk"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="f4Z-ni-dqg"/>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="gnH-F4-V83"/>
                             <constraint firstItem="IHl-ro-QLR" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="owv-qR-Gbc"/>
@@ -78,6 +96,7 @@
                     <connections>
                         <outlet property="connectionStatusLabel" destination="hOM-wQ-GMY" id="7Zu-pH-rPN"/>
                         <outlet property="deviceNameLabel" destination="0WX-GJ-VaU" id="sed-h7-IwW"/>
+                        <outlet property="disconnectButton" destination="kog-xZ-6cY" id="Fbl-dp-9Sa"/>
                         <outlet property="inputLabel" destination="IHl-ro-QLR" id="cID-YS-1d2"/>
                         <outlet property="macAddressLabel" destination="KlS-EE-2pp" id="Sgb-xC-ddc"/>
                         <outlet property="scanButton" destination="xtN-ct-LGK" id="UoP-Nf-ONc"/>
