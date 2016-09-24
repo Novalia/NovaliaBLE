@@ -14,7 +14,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     // NovaliaBLEInterface vars
     var interface: NovaliaBLEInterface!
     var previousBLEState: NovaliaBLEState!
-    var launchDiscoveryTimer: NSTimer!
+    var launchDiscoveryTimer: Timer!
     var selectedDevices = [NovaliaBLEDevice]()
     var currentDevice: NovaliaBLEDevice!
     
@@ -34,19 +34,19 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     
     
     // MARK: Actions
-    @IBAction func scanButtonTapped(sender: AnyObject) {
+    @IBAction func scanButtonTapped(_ sender: AnyObject) {
         startDiscovery()
     }
     
-    @IBAction func disconnectButtonTapped(sender: AnyObject) {
+    @IBAction func disconnectButtonTapped(_ sender: AnyObject) {
         if currentDevice != nil {
-            self.interface.disconnectFromDevice(currentDevice)
+            self.interface.disconnect(from: currentDevice)
         }
     }
     
-    @IBAction func reconnectButtonTapped(sender: AnyObject) {
+    @IBAction func reconnectButtonTapped(_ sender: AnyObject) {
         if currentDevice != nil {
-            self.interface.connectToDevice(currentDevice)
+            self.interface.connect(to: currentDevice)
         }
     }
     
@@ -57,15 +57,15 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
             interface = NovaliaBLEInterface(delegate: self)
             interface.diagnosticsMode = true
             previousBLEState = BLEStateNotReady
-            launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(startDiscovery), userInfo: nil, repeats: false)
+            launchDiscoveryTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startDiscovery), userInfo: nil, repeats: false)
         }
     }
     
     func startDiscovery() {
         
-        self.scanButton.setTitle("Scanning", forState: .Normal)
+        self.scanButton.setTitle("Scanning", for: UIControlState())
         
-        launchDiscoveryTimer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(stopDiscovery), userInfo: nil, repeats: false)
+        launchDiscoveryTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopDiscovery), userInfo: nil, repeats: false)
         
         if currentDevice == nil {
             // Set a status message to indicate no device connected
@@ -79,7 +79,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     func stopDiscovery() {
         
         
-        self.scanButton.setTitle("Start Scan", forState: .Normal)
+        self.scanButton.setTitle("Start Scan", for: UIControlState())
         
         if currentDevice == nil {
             // Set a status message to indicate no device connected
@@ -90,7 +90,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     }
     
     // MARK: NovaliaBLEInterface Delegate methods
-    func onDeviceDiscovered(device: NovaliaBLEDevice!) {
+    func onDeviceDiscovered(_ device: NovaliaBLEDevice!) {
         
         print("Device discovered")
         if currentDevice == nil {
@@ -98,7 +98,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         }
         
         var array = selectedDevices
-        let index = array.indexOf(device)
+        let index = array.index(of: device)
         
         if(index != nil) {
             array[index!] = device
@@ -111,7 +111,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         //interface.connectToDevice(device)
     }
     
-    func onDeviceListChanged(newList: [AnyObject]!) {
+    func onDeviceListChanged(_ newList: [AnyObject]!) {
         
         var connected = 0
         var connecting = 0
@@ -119,13 +119,13 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         for device: NovaliaBLEDevice in newList as! [NovaliaBLEDevice] {
             if(isDeviceConnected(device)) {
-                print("\(device.uuid.UUIDString) connected")
+                print("\(device.uuid.uuidString) connected")
                 connected += 1
             } else if(isDeviceConnecting(device)) {
-                print("\(device.uuid.UUIDString) connecting")
+                print("\(device.uuid.uuidString) connecting")
                 connecting += 1
             } else if(isDeviceDisconnected(device)) {
-                print("\(device.uuid.UUIDString) disconnected")
+                print("\(device.uuid.uuidString) disconnected")
                 disconnected += 1
             }
         }
@@ -144,7 +144,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         }
     }
     
-    func onDeviceConnected(device: NovaliaBLEDevice!) {
+    func onDeviceConnected(_ device: NovaliaBLEDevice!) {
         // Set a status message to indicate device connected
         
         currentDevice = device
@@ -153,25 +153,25 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         
         if(isDeviceConnected(currentDevice)) {
-            print("\(currentDevice.uuid.UUIDString) connected")
+            print("\(currentDevice.uuid.uuidString) connected")
         } else if(isDeviceConnecting(currentDevice)) {
-            print("\(currentDevice.uuid.UUIDString) connecting")
+            print("\(currentDevice.uuid.uuidString) connecting")
         } else if(isDeviceDisconnected(currentDevice)) {
-            print("\(currentDevice.uuid.UUIDString) disconnected")
+            print("\(currentDevice.uuid.uuidString) disconnected")
         }
     }
     
-    func isDeviceConnected(device: NovaliaBLEDevice) -> Bool {
+    func isDeviceConnected(_ device: NovaliaBLEDevice) -> Bool {
         return (device.status & NovaliaBLEDeviceConnected) == NovaliaBLEDeviceConnected
     }
-    func isDeviceConnecting(device: NovaliaBLEDevice) -> Bool {
+    func isDeviceConnecting(_ device: NovaliaBLEDevice) -> Bool {
         return (device.status & NovaliaBLEDeviceConnecting) == NovaliaBLEDeviceConnecting
     }
-    func isDeviceDisconnected(device: NovaliaBLEDevice) -> Bool {
+    func isDeviceDisconnected(_ device: NovaliaBLEDevice) -> Bool {
         return isDeviceConnected(device) == false && isDeviceConnecting(device) == false
     }
     
-    func onDeviceDisconnected(device: NovaliaBLEDevice!) {
+    func onDeviceDisconnected(_ device: NovaliaBLEDevice!) {
         //currentDevice = nil
         
         // Set a status message to indicate no device connected
@@ -181,7 +181,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     }
     
     
-    func onBLEStateChanged(state: NovaliaBLEState) {
+    func onBLEStateChanged(_ state: NovaliaBLEState) {
         
         if(previousBLEState == state) {
             return
@@ -206,23 +206,23 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         }
         
         if(!title.isEmpty) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func onButtonPressed(button: Int32, velocity: Int32, onDevice device: AnyObject!) {
+    func onButtonPressed(_ button: Int32, velocity: Int32, onDevice device: AnyObject!) {
         let device = device as! NovaliaBLEDevice
-        print("Button pressed \(button) on device \(device.uuid.UUIDString)")
+        print("Button pressed \(button) on device \(device.uuid.uuidString)")
         
         // Now do something in response to a button being pressed
-        self.inputLabel.text = "Velocity \(velocity) on button \(button) on device \(device.uuid.UUIDString)"
+        self.inputLabel.text = "Velocity \(velocity) on button \(button) on device \(device.uuid.uuidString)"
     }
     
     
     // MARK: NovaliaBLEDeviceEventDelegate methods
-    func onMACAddressUpdated(macAddress: String!, onDevice device: AnyObject!) {
+    func onMACAddressUpdated(_ macAddress: String!, onDevice device: AnyObject!) {
         print("MAC address \(macAddress) device \(device.macAddress)")
         self.macAddressLabel.text = device.macAddress
     }

@@ -248,6 +248,10 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Andrew Sage";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 33W58W5MZ2;
+						LastSwiftMigration = 0800;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -515,6 +519,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33W58W5MZ2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovaliaBLE/NovaliaBLE-Prefix.pch";
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
@@ -524,6 +529,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -536,6 +542,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 33W58W5MZ2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovaliaBLE/NovaliaBLE-Prefix.pch";
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
@@ -544,6 +551,7 @@
 				PRODUCT_MODULE_NAME = NovaliaBLE_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
