@@ -17,6 +17,8 @@
 -(NovaliaBLEDevicePrivate *)initWithPeripheral:(CBPeripheral*)peripheral andRSSI:(NSNumber*)RSSI;
 
 -(void)updateMACAddress:(NSString *)macAddress;
+-(void)updateFirmwareVersion:(NSString *)firmwareVersion;
+-(void)updateHardwareVersion:(NSString *)hardwareVersion;
 -(void)updateStatus:(int)status;
 -(void)updateRSSI:(NSNumber *)RSSI;
 -(void)onButtonPressed:(int)button velocity:(int)velocity;

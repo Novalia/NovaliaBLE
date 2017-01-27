@@ -24,6 +24,8 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var inputLabel: UILabel!
     @IBOutlet weak var macAddressLabel: UILabel!
+    @IBOutlet weak var firmwareVersionLabel: UILabel!
+    @IBOutlet weak var hardwareVersionLabel: UILabel!
     
     @IBOutlet weak var disconnectButton: UIButton!
     
@@ -110,14 +112,14 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         selectedDevices = array
         //interface.connectToDevice(device)
     }
-    
-    func onDeviceListChanged(_ newList: [AnyObject]!) {
+
+    @nonobjc func onDeviceListChanged(_ newList: [NovaliaBLEDevice]) {
         
         var connected = 0
         var connecting = 0
         var disconnected = 0
         
-        for device: NovaliaBLEDevice in newList as! [NovaliaBLEDevice] {
+        for device: NovaliaBLEDevice in newList {
             if(isDeviceConnected(device)) {
                 print("\(device.uuid.uuidString) connected")
                 connected += 1
@@ -212,7 +214,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         }
     }
     
-    func onButtonPressed(_ button: Int32, velocity: Int32, onDevice device: AnyObject!) {
+    func onButtonPressed(_ button: Int32, velocity: Int32, onDevice device: Any!) {
         let device = device as! NovaliaBLEDevice
         print("Button pressed \(button) on device \(device.uuid.uuidString)")
         
@@ -222,10 +224,18 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     
     
     // MARK: NovaliaBLEDeviceEventDelegate methods
-    func onMACAddressUpdated(_ macAddress: String!, onDevice device: AnyObject!) {
-        print("MAC address \(macAddress) device \(device.macAddress)")
-        self.macAddressLabel.text = device.macAddress
+    func onMACAddressUpdated(_ macAddress: String!, onDevice device: Any!) {
+        print("MAC address \(macAddress) device \((device as AnyObject).macAddress)")
+        self.macAddressLabel.text = (device as AnyObject).macAddress
     }
-
-
+    
+    func onFirmwareVersionUpdated(_ firmwareVersion: String!, onDevice device: Any!) {
+        let device = device as! NovaliaBLEDevice
+        self.firmwareVersionLabel.text = "Firmware \(device.firmwareVersion!)"
+    }
+    
+    func onHardwareVersionUpdated(_ hardwareVersion: String!, onDevice device: Any!) {
+        let device = device as! NovaliaBLEDevice
+        self.hardwareVersionLabel.text =  "Hardware \(device.hardwareVersion!)"
+    }
 }

@@ -27,6 +27,8 @@
 @property CBUUID *primaryServiceSerialNumberCharacteristicUUID;
 @property NSString *targetDeviceName;
 
+@property (strong,nonatomic) NSMutableArray *peripherals;
+
 @end
 
 
@@ -89,6 +91,7 @@
         centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         allDevices = [[NSMutableArray alloc] init];
         helpers = [[NSMutableArray alloc] init];
+        self.peripherals=[NSMutableArray new];
     }
     
     return self;
@@ -143,7 +146,7 @@
         return NO;
     }
     
-#define SEARCH_ALL_DEVICES
+//#define SEARCH_ALL_DEVICES
 #ifdef SEARCH_ALL_DEVICES
     // Set services array to nil if we want to scan for all devices
     NSArray *services = [[NSArray alloc] initWithObjects:nil];
@@ -384,8 +387,6 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"NovaliaBLEPrivateManager centralManager:didDiscoverPeripheral: %@ (RSSI: %@)", peripheral.name, RSSI);
-    NSLog(@"RSSI: %@, advertised data: %@", RSSI, advertisementData);
-    
     
     BOOL isRecognised = NO;
     NSArray *advertisedUUIDs = [advertisementData valueForKey:CBAdvertisementDataServiceUUIDsKey];
@@ -406,11 +407,13 @@
     }
     
     if (isRecognised == NO) {
-        NSLog(@"NO Recognized: %@", advertisementData);
+        //NSLog(@"NO Recognized: %@", advertisementData);
         return;
     }
     
     if([peripheral.name isEqualToString:self.targetDeviceName] || [self.targetDeviceName isEqualToString:@"*"]) {
+        
+        [self.peripherals addObject:peripheral];
 
         @synchronized(self) {
             id device = [self findDeviceForPeripheral:peripheral];
@@ -421,6 +424,7 @@
                 [allDevices addObject:device];
                 
                 // The following line triggers an auto connect
+                [centralManager cancelPeripheralConnection:peripheral];
                 [centralManager connectPeripheral:peripheral options:nil];
             
                 if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
@@ -543,6 +547,10 @@
             NSLog(@"MAC address %@", macAddressString);
             [device updateMACAddress:macAddressString];
             NSLog(@"MAC address on device: %@", device.macAddress);
+        } else if([characteristic.UUID.description isEqualToString:@"Hardware Revision String"]) {
+            [device updateHardwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        } else if([characteristic.UUID.description isEqualToString:@"Firmware Revision String"]) {
+            [device updateFirmwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
         } else {
             NSLog(@"UUID: [%@]", characteristic.UUID);
             NSLog(@"Data: %@",  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);

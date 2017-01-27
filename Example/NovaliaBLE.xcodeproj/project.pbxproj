@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1807EB9C846199C42F7F1CE3 /* Pods_NovaliaBLE_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108E47F9CBCDB6DD8F470C63 /* Pods_NovaliaBLE_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		494F93D21E3BBFA1000B8A6A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F93D11E3BBFA1000B8A6A /* Launch Screen.storyboard */; };
 		49A57AB31D10599A00A18E19 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A57AB21D10599A00A18E19 /* DeviceController.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -39,6 +40,7 @@
 		01A6421B74BADCFF3F1A3922 /* Pods-NovaliaBLE_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NovaliaBLE_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NovaliaBLE_Example/Pods-NovaliaBLE_Example.release.xcconfig"; sourceTree = "<group>"; };
 		108E47F9CBCDB6DD8F470C63 /* Pods_NovaliaBLE_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1B7EB77767C9E68E61A7E3 /* NovaliaBLE.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NovaliaBLE.podspec; path = ../NovaliaBLE.podspec; sourceTree = "<group>"; };
+		494F93D11E3BBFA1000B8A6A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		49A57AB11D10599A00A18E19 /* NovaliaBLE_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NovaliaBLE_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		49A57AB21D10599A00A18E19 /* DeviceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceController.swift; sourceTree = "<group>"; };
 		4BF4BD7FE83818C24FABB41B /* Pods_NovaliaBLE_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NovaliaBLE_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				49A57AB21D10599A00A18E19 /* DeviceController.swift */,
 				49A57AB11D10599A00A18E19 /* NovaliaBLE_Example-Bridging-Header.h */,
+				494F93D11E3BBFA1000B8A6A /* Launch Screen.storyboard */,
 			);
 			name = "Example for NovaliaBLE";
 			path = NovaliaBLE;
@@ -245,7 +248,7 @@
 			attributes = {
 				CLASSPREFIX = NOV;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Andrew Sage";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -283,6 +286,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				494F93D21E3BBFA1000B8A6A /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,13 +456,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -491,13 +501,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -506,6 +521,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -525,6 +541,7 @@
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = NovaliaBLE_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
@@ -548,6 +565,7 @@
 				INFOPLIST_FILE = "NovaliaBLE/NovaliaBLE-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = NovaliaBLE_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NovaliaBLE/NovaliaBLE_Example-Bridging-Header.h";
@@ -573,6 +591,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NovaliaBLE_Example.app/NovaliaBLE_Example";
 				WRAPPER_EXTENSION = xctest;
@@ -592,6 +611,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NovaliaBLE_Example.app/NovaliaBLE_Example";
 				WRAPPER_EXTENSION = xctest;
