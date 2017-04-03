@@ -14,6 +14,9 @@
 @property (readwrite) int deviceType;
 @property (readwrite) NSUUID *uuid;
 @property (readwrite) NSString *deviceName;
+@property (readwrite) NSString *macAddress;
+@property (readwrite) NSString *firmwareVersion;
+@property (readwrite) NSString *hardwareVersion;
 @property (readwrite) int status;
 @property (readwrite) BOOL isRecognised;
 
@@ -27,6 +30,9 @@
 @synthesize uuid;
 @synthesize rssi;
 @synthesize deviceName;
+@synthesize macAddress;
+@synthesize firmwareVersion;
+@synthesize hardwareVersion;
 @synthesize delegate;
 @synthesize isRecognised;
 
@@ -38,6 +44,9 @@
         uuid = theUUID;
         isRecognised = NO;
         deviceType = NovaliaBLEDeviceTypeOther;
+        macAddress = @"";
+        firmwareVersion = @"";
+        hardwareVersion = @"";
     }
     
     return self;

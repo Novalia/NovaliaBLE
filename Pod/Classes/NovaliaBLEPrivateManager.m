@@ -27,12 +27,15 @@
 @property CBUUID *primaryServiceSerialNumberCharacteristicUUID;
 @property NSString *targetDeviceName;
 
+@property (strong,nonatomic) NSMutableArray *peripherals;
+
 @end
 
 
 @implementation NovaliaBLEPrivateManager
 
 @synthesize delegate;
+@synthesize diagnosticsMode;
 @synthesize centralManager;
 @synthesize novaliaServiceUUID;
 @synthesize novaliaButtonCharacteristicUUID;
@@ -88,6 +91,7 @@
         centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         allDevices = [[NSMutableArray alloc] init];
         helpers = [[NSMutableArray alloc] init];
+        self.peripherals=[NSMutableArray new];
     }
     
     return self;
@@ -126,7 +130,9 @@
 }
 
 - (BOOL)startDiscovery:(NSString*)targetName {
-    NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
+    }
     
     self.targetDeviceName = targetName;
     
@@ -157,7 +163,9 @@
     // Look only for devices that match our service
     [centralManager scanForPeripheralsWithServices:services options:nil];
     
-    NSLog(@"NovaliaBLEPrivateManager startDiscovery: Discovery should have started.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager startDiscovery: Discovery should have started.");
+    }
     
     if ([delegate respondsToSelector:@selector(onDiscoveryStarted)]) {
         [delegate onDiscoveryStarted];
@@ -206,7 +214,9 @@
 }
 
 - (void) connectToDevices:(NSArray *)devicesToConnect {
-    NSLog(@"NovaliaBLEPrivateManager connectToDevices");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager connectToDevices");
+    }
     
     NSMutableArray *identifiers = [[NSMutableArray alloc] initWithCapacity:[devicesToConnect count]];
     
@@ -249,7 +259,9 @@
 }
 
 - (void)stopDiscovery {
-    NSLog(@"NovaliaBLEPrivateManager stopDiscovery: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager stopDiscovery: called.");
+    }
     
     // We're not returning because we still want to call onDiscoveryStopped
     // in case the user interface needs to be updated.xw
@@ -267,7 +279,9 @@
 // CBCentralManagerDelegate Protocol Implementation:
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: called.");
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: called.");
+    }
     
     if (central != centralManager) {
         NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Unknown Manager");
@@ -279,7 +293,9 @@
     CBCentralManagerState state = central.state;
     NovaliaBLEState bleState = [self bluetoothStatusForCentralState:state];
     
-    NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Current State = %ld %@", (long)state, [NovaliaBLEPrivateManager getCBCentralStateName:state]);
+    if(diagnosticsMode) {
+        NSLog(@"NovaliaBLEPrivateManager centralManagerDidUpdateState: Current State = %ld %@", (long)state, [NovaliaBLEPrivateManager getCBCentralStateName:state]);
+    }
     
     if ([delegate respondsToSelector:@selector(onBLEStateChanged:)]) {
         [delegate onBLEStateChanged:bleState];
@@ -312,14 +328,25 @@
         return;
     }
     
-    CBService *service = [self findServiceFromUUID:novaliaServiceUUID onPeripheral:peripheral];
-    [peripheral discoverCharacteristics:nil forService:service];
+    //CBService *service = [self findServiceFromUUID:novaliaServiceUUID onPeripheral:peripheral];
+    //[peripheral discoverCharacteristics:nil forService:service];
+    
+    for(CBService *service in peripheral.services) {
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     // todo: handle errors
     NSArray *characteristics = (service == nil) ? nil : service.characteristics;
     NSLog(@"  Characteristics: %@\n  Error: %@", characteristics, error);
+    
+    
+    if ([self isCBUUID:service.UUID equalTo:primaryServiceUUID]) {
+        for(CBCharacteristic *characteristic in characteristics) {
+            [peripheral readValueForCharacteristic:characteristic];
+        }
+    }
     
     CBCharacteristic *characteristic = [self findCharacteristicFromUUID:appleBLEMIDICharacteristicUUID
                                                          onService:service];
@@ -360,8 +387,6 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"NovaliaBLEPrivateManager centralManager:didDiscoverPeripheral: %@ (RSSI: %@)", peripheral.name, RSSI);
-    NSLog(@"RSSI: %@, advertised data: %@", RSSI, advertisementData);
-    
     
     BOOL isRecognised = NO;
     NSArray *advertisedUUIDs = [advertisementData valueForKey:CBAdvertisementDataServiceUUIDsKey];
@@ -372,20 +397,23 @@
             NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
             break;
         }
-        
+        /*
         if ([uuid isEqual:primaryServiceUUID]) {
             isRecognised = YES;
             NSLog(@"YES Recognized as primary service: %@", advertisementData);
             break;
         }
+         */
     }
     
     if (isRecognised == NO) {
-        NSLog(@"NO Recognized: %@", advertisementData);
+        //NSLog(@"NO Recognized: %@", advertisementData);
         return;
     }
     
     if([peripheral.name isEqualToString:self.targetDeviceName] || [self.targetDeviceName isEqualToString:@"*"]) {
+        
+        [self.peripherals addObject:peripheral];
 
         @synchronized(self) {
             id device = [self findDeviceForPeripheral:peripheral];
@@ -395,6 +423,10 @@
                 [device updateStatus:NovaliaBLEDeviceDiscovered];
                 [allDevices addObject:device];
                 
+                // The following line triggers an auto connect
+                [centralManager cancelPeripheralConnection:peripheral];
+                [centralManager connectPeripheral:peripheral options:nil];
+            
                 if ([delegate respondsToSelector:@selector(onDeviceListChanged:)]) {
                     [delegate onDeviceListChanged: (NSArray *)allDevices];
                 }
@@ -495,21 +527,46 @@
     }
      */
     
-    if ([[characteristic UUID] isEqual:appleBLEMIDICharacteristicUUID] == NO) {
-        return;
-    }
-    
-    id device = [self findDeviceForPeripheral:peripheral];
+    NovaliaBLEDevicePrivate* device = [self findDeviceForPeripheral:peripheral];
     
     if (device == nil) {
         return;
     }
     
+    if ([[characteristic UUID] isEqual:appleBLEMIDICharacteristicUUID] == NO) {
+        
+        NSData *data = characteristic.value;
+        NSLog(@"Characteristic %@ value %@", characteristic, characteristic.value);
+        if([characteristic.UUID.description isEqualToString:@"Model Number String"]) {
+            NSString *macAddressString = @"Firmware does not provide MAC address";
+            uint8_t *bytes = (uint8_t*)data.bytes;
+            if(bytes) {
+               macAddressString = [NSString stringWithFormat: @"%02x:%02x:%02x:%02x:%02x:%02x",
+                                          bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
+            }
+            NSLog(@"MAC address %@", macAddressString);
+            [device updateMACAddress:macAddressString];
+            NSLog(@"MAC address on device: %@", device.macAddress);
+        } else if([characteristic.UUID.description isEqualToString:@"Hardware Revision String"]) {
+            [device updateHardwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        } else if([characteristic.UUID.description isEqualToString:@"Firmware Revision String"]) {
+            [device updateFirmwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        } else {
+            NSLog(@"UUID: [%@]", characteristic.UUID);
+            NSLog(@"Data: %@",  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        }
+        
+        return;
+    }
+
+    
     if ([delegate respondsToSelector:@selector(onDeviceUpdatedValue:)]) {
         [delegate onDeviceUpdatedValue:characteristic.value];
     } else {
-        NSLog(@"NovaliaBLEPrivateManager peripheral:didUpdateValueForCharacteristic: %@", characteristic);
-        NSLog(@"Value: %@", characteristic.value);
+        if(diagnosticsMode) {
+            NSLog(@"NovaliaBLEPrivateManager peripheral:didUpdateValueForCharacteristic: %@", characteristic);
+            NSLog(@"Value: %@", characteristic.value);
+        }
     }
     
     // Find which button was pressed
@@ -554,7 +611,7 @@
 -(CBCharacteristic *) findCharacteristicFromUUID:(CBUUID *)uuid onService:(CBService*)service {
     NSArray *characteristics = [service characteristics];
     
-    NSLog(@"NovaliaBLEPrivateManager findCharacteristicFromUUID");
+    NSLog(@"NovaliaBLEPrivateManager findCharacteristicFromUUID for service %@", service.UUID.UUIDString);
     for(int i=0; i < characteristics.count; i++) {
         CBCharacteristic *c = [characteristics objectAtIndex:i];
         NSLog(@"Checking %@ == %@", c.UUID, uuid);
@@ -619,6 +676,10 @@
 
 -(NSArray *)getDevicesCopy {
     return (NSArray *)allDevices.copy;
+}
+
+- (void)forgetAllDevices {
+    [allDevices removeAllObjects];
 }
 
 -(NovaliaBLEState)bluetoothState {

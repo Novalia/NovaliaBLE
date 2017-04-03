@@ -16,6 +16,7 @@
 
 @property (nonatomic, assign) id <NovaliaBLEInterfaceDelegate> delegate;
 @property (readonly) NSMutableArray *connectedDevices;
+@property BOOL diagnosticsMode;
 
 -(BOOL)startDiscovery:(NSString*)targetName;
 -(void)stopDiscovery;
@@ -23,6 +24,7 @@
 -(void)connectToDevices:(NSArray *)devices;
 -(void)disconnectFromDevice:(NovaliaBLEDevice *)device;
 -(NSArray *)getDevicesCopy;
+-(void)forgetAllDevices;
 -(NSArray*)retrieveDevicesWithIdentifiers:(NSArray *)identifiers;
 -(NovaliaBLEState)bluetoothState;
 -(void)writeData:(NSData*)data toDevice:(NovaliaBLEDevice *)device;

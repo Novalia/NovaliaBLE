@@ -13,6 +13,9 @@
 @property int status;
 @property BOOL isRecognised;
 @property int deviceType;
+@property NSString* macAddress;
+@property NSString* firmwareVersion;
+@property NSString* hardwareVersion;
 
 @end
 
@@ -23,6 +26,9 @@
 @synthesize status;
 @synthesize isRecognised;
 @synthesize deviceType;
+@synthesize macAddress;
+@synthesize firmwareVersion;
+@synthesize hardwareVersion;
 @synthesize peripheral;
 
 -(NovaliaBLEDevicePrivate *)initWithPeripheral:(CBPeripheral*)p {
@@ -46,6 +52,29 @@
     }
     
     return self;
+}
+
+-(void)updateMACAddress:(NSString *)address {
+    [self setMacAddress:address];
+    if ([self.delegate respondsToSelector:@selector(onMACAddressUpdated:onDevice:)]) {
+        [self.delegate onMACAddressUpdated:address onDevice:self];
+    }
+}
+
+-(void)updateFirmwareVersion:(NSString *)firmwareVersion {
+    [self setFirmwareVersion:firmwareVersion];
+    if ([self.delegate respondsToSelector:@selector(onFirmwareVersionUpdated:onDevice:)]) {
+        [self.delegate onFirmwareVersionUpdated:firmwareVersion onDevice:self];
+    }
+}
+
+
+
+-(void)updateHardwareVersion:(NSString *)hardwareVersion {
+    [self setHardwareVersion:hardwareVersion];
+    if ([self.delegate respondsToSelector:@selector(onHardwareVersionUpdated:onDevice:)]) {
+        [self.delegate onHardwareVersionUpdated:hardwareVersion onDevice:self];
+    }
 }
 
 -(void)updateStatus:(int)s {
