@@ -40,7 +40,25 @@ Use the Xcode workspace instead of the project file from now on.
 open App.xcworkspace
 ```
 
+## Connection Process
+
+Due to Apple not allowing the actual MAC address to be read as part of the standard BLE service information we have had to add a separate call to the firmware to get that information.
+
+As multiple nearby devices can be detected it is necessary to get the MAC address to identify the specific device you with to make the permant connection to.
+
+The connection process is as follows: 
+
+1. When the a Novalia device is first detected it is connected to so that the MAC address can be retrieved.
+2. Device is then disconnected from.
+3. Connect to the specfic device that you require.
+
+
 ## Adding to ViewController
+
+### Important note
+
+Some of the method calls in the following code snippets may out of date due to Swift 3.0. The most up to date versions can be found in the Example application's source code.
+
 
 The minimum setup requires the following code added to the ViewController:
 
