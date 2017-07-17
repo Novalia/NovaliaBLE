@@ -551,6 +551,10 @@
             [device updateHardwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
         } else if([characteristic.UUID.description isEqualToString:@"Firmware Revision String"]) {
             [device updateFirmwareVersion:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+        } else if([[characteristic UUID] isEqual:primaryServiceSerialNumberCharacteristicUUID]) {
+            NSLog(@"Serial number: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            [device updateDeviceName:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+            
         } else {
             NSLog(@"UUID: [%@]", characteristic.UUID);
             NSLog(@"Data: %@",  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
@@ -723,6 +727,35 @@
                 [privateDevice.peripheral writeValue:data
                                    forCharacteristic:characteristic
                                                 type:CBCharacteristicWriteWithoutResponse];
+            }
+        }
+    }
+}
+
+
+-(void)writeDISSerialNumber:(NSString*)serialNumber toDevice:(NovaliaBLEDevice *)device {
+    
+    NSLog(@"NovaliaBLEPrivateManager writeDISSerialNumberData %@ toDevice %@", serialNumber, device);
+    
+    for(NovaliaBLEDevicePrivate *privateDevice in allDevices) {
+        if(privateDevice.uuid == device.uuid) {
+            NSLog(@"We need to write to peripheral %@", privateDevice.peripheral);
+            CBService *service = [self findServiceFromUUID:primaryServiceUUID onPeripheral:privateDevice.peripheral];
+            CBCharacteristic *characteristic = [self findCharacteristicFromUUID:primaryServiceSerialNumberCharacteristicUUID
+                                                                      onService:service];
+            NSLog(@"We need to write for characteristic %@", characteristic);
+            
+            if(characteristic != nil) {
+                
+                NSString *correctLengthSerialNumber = [serialNumber stringByPaddingToLength:8 withString:@" " startingAtIndex:0];
+                
+                NSData *data = [correctLengthSerialNumber dataUsingEncoding:NSUTF8StringEncoding];
+                
+                [privateDevice.peripheral writeValue:data
+                                   forCharacteristic:characteristic
+                                                type:CBCharacteristicWriteWithResponse];
+                
+                [privateDevice.peripheral readValueForCharacteristic:characteristic];
             }
         }
     }

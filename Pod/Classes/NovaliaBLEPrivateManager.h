@@ -28,5 +28,6 @@
 -(NSArray*)retrieveDevicesWithIdentifiers:(NSArray *)identifiers;
 -(NovaliaBLEState)bluetoothState;
 -(void)writeData:(NSData*)data toDevice:(NovaliaBLEDevice *)device;
+-(void)writeDISSerialNumber:(NSString*)serialNumber toDevice:(NovaliaBLEDevice *)device;
 
 @end

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,6 +79,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-to-xTd">
+                                <rect key="frame" x="159" y="553" width="56" height="30"/>
+                                <state key="normal" title="Rename"/>
+                                <connections>
+                                    <action selector="renameButtonTapped:" destination="whP-gf-Uak" eventType="touchUpInside" id="vP5-Np-ot9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -98,10 +105,12 @@
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZD5-pE-K76"/>
                             <constraint firstItem="KlS-EE-2pp" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" id="ZKF-Ae-tKu"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYv-Da-yQt"/>
+                            <constraint firstItem="KZK-S1-I0z" firstAttribute="top" secondItem="6Sl-to-xTd" secondAttribute="bottom" constant="8" symbolic="YES" id="bpY-u4-XAR"/>
                             <constraint firstItem="OgJ-Tr-Ubm" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="c4f-Vh-9oy"/>
                             <constraint firstItem="kog-xZ-6cY" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="eoB-Nb-Ndk"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="f4Z-ni-dqg"/>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="gnH-F4-V83"/>
+                            <constraint firstItem="6Sl-to-xTd" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="oX3-3A-S9j"/>
                             <constraint firstItem="IHl-ro-QLR" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="owv-qR-Gbc"/>
                             <constraint firstItem="OgJ-Tr-Ubm" firstAttribute="top" secondItem="VNu-Bs-Ceg" secondAttribute="bottom" constant="8" symbolic="YES" id="uDi-sn-L0i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IHl-ro-QLR" secondAttribute="trailing" id="vhm-b7-lwL"/>
@@ -123,6 +132,7 @@
                         <outlet property="hardwareVersionLabel" destination="OgJ-Tr-Ubm" id="81P-Vz-mzl"/>
                         <outlet property="inputLabel" destination="IHl-ro-QLR" id="cID-YS-1d2"/>
                         <outlet property="macAddressLabel" destination="KlS-EE-2pp" id="Sgb-xC-ddc"/>
+                        <outlet property="renameButton" destination="6Sl-to-xTd" id="2kb-Uc-scW"/>
                         <outlet property="scanButton" destination="xtN-ct-LGK" id="UoP-Nf-ONc"/>
                     </connections>
                 </viewController>

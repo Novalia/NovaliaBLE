@@ -34,6 +34,7 @@
 -(void)onMACAddressUpdated:(NSString*)macAddress onDevice:(id)device;
 -(void)onFirmwareVersionUpdated:(NSString*)firmwareVersion onDevice:(id)device;
 -(void)onHardwareVersionUpdated:(NSString*)hardwareVersion onDevice:(id)device;
+-(void)onNameUpdated:(NSString*)deviceName onDevice:(id)device;
 
 @end
 

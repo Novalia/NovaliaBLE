@@ -100,4 +100,10 @@
     [manager writeData:data toDevice:device];
 }
 
+-(void)writeDISSerialNumber:(NSString*)serialNumber toDevice:(NovaliaBLEDevice *)device {
+    NSLog(@"NovaliaBLEInterface writeDISData %@ toDevice %@", serialNumber, device);
+    [manager writeDISSerialNumber:serialNumber toDevice:device];
+
+}
+
 @end

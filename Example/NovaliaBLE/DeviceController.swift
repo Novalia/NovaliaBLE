@@ -20,6 +20,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var connectionStatusLabel: UILabel!
+    @IBOutlet weak var renameButton: UIButton!
     
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var inputLabel: UILabel!
@@ -49,6 +50,22 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     @IBAction func reconnectButtonTapped(_ sender: AnyObject) {
         if currentDevice != nil {
             self.interface.connect(to: currentDevice)
+        }
+    }
+    
+    @IBAction func renameButtonTapped(_ sender: AnyObject) {
+        if currentDevice != nil {
+            
+            let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            var randomString: String = ""
+            
+            for _ in 0..<10 {
+                let randomValue = arc4random_uniform(UInt32(base.characters.count))
+                randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+            }
+            
+            
+            self.interface.writeDISSerialNumber(randomString, to: currentDevice)
         }
     }
     
@@ -237,5 +254,10 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     func onHardwareVersionUpdated(_ hardwareVersion: String!, onDevice device: Any!) {
         let device = device as! NovaliaBLEDevice
         self.hardwareVersionLabel.text =  "Hardware \(device.hardwareVersion!)"
+    }
+    
+    func onNameUpdated(_ deviceName: String!, onDevice device: Any!) {
+        let device = device as! NovaliaBLEDevice
+        self.deviceNameLabel.text = deviceName
     }
 }

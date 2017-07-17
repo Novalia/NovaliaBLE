@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 [![Platform](https://img.shields.io/cocoapods/p/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 
+## What's new in 0.1.9
+
+The Novalia device can now be renamed. 
+
 ## Building a NovaliaBLE based app for iOS
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first
