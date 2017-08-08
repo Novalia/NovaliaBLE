@@ -5,6 +5,15 @@
 [![License](https://img.shields.io/cocoapods/l/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 [![Platform](https://img.shields.io/cocoapods/p/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
 
+## What's new in 0.1.10
+
+Scanning for devices can now include previously discovered devices. This is useful for continous scanning when working with multiple devices.
+
+### Example app
+Now allows continous scanning.
+
+Bug fixed that prevented NovaliaBLEDeviceEventDelegate::onDeviceListChanged delegate method being called.
+
 ## What's new in 0.1.9
 
 The Novalia device can now be renamed. 
@@ -115,7 +124,8 @@ var currentDevice: NovaliaBLEDevice!
 
         // Set the device name to be searched for e.g. novppia1
         // Setting the device name to * searches for all devices
-        self.interface.startDeviceDiscovery("novppia1")
+        // Allow devices to be rediscovered by setting allowDuplicates to true
+        self.interface.startDeviceDiscovery("novppia1", allowDuplicates:true)
     }
 
     func stopDiscovery() {

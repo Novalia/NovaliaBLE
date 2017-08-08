@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "NovaliaBLE"
-  s.version          = "0.1.9"
-  s.summary          = "For connecting to and using a Novalia BLE device."
+  s.version          = "0.1.10"
+  s.summary          = "For connecting to and using Novalia BLE devices."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-This CocoaPod provides the ability to connecting to and use a Novalia BLE device.
+This CocoaPod provides the ability to connecting to and use Novalia BLE devices.
                        DESC
 
   s.homepage         = "https://github.com/tirami/NovaliaBLE"

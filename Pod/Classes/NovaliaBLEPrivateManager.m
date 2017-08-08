@@ -129,7 +129,7 @@
     }
 }
 
-- (BOOL)startDiscovery:(NSString*)targetName {
+- (BOOL)startDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
     if(diagnosticsMode) {
         NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
     }
@@ -156,12 +156,12 @@
 #endif
     
     NSMutableDictionary *options = [[NSMutableDictionary alloc] initWithCapacity:1];
-    [options setObject:[[NSNumber alloc] initWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
+    if(allowDuplicates) {
+        [options setObject:[[NSNumber alloc] initWithBool:YES] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
+    }
 
-    //[centralManager scanForPeripheralsWithServices:services options:options];
-    
     // Look only for devices that match our service
-    [centralManager scanForPeripheralsWithServices:services options:nil];
+    [centralManager scanForPeripheralsWithServices:services options:options];
     
     if(diagnosticsMode) {
         NSLog(@"NovaliaBLEPrivateManager startDiscovery: Discovery should have started.");
@@ -397,13 +397,6 @@
             NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
             break;
         }
-        /*
-        if ([uuid isEqual:primaryServiceUUID]) {
-            isRecognised = YES;
-            NSLog(@"YES Recognized as primary service: %@", advertisementData);
-            break;
-        }
-         */
     }
     
     if (isRecognised == NO) {
@@ -423,7 +416,7 @@
                 [device updateStatus:NovaliaBLEDeviceDiscovered];
                 [allDevices addObject:device];
                 
-                // The following line triggers an auto connect
+                // The following line triggers an auto connect if not already connected
                 [centralManager cancelPeripheralConnection:peripheral];
                 [centralManager connectPeripheral:peripheral options:nil];
             

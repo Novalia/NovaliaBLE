@@ -55,7 +55,13 @@
 }
 
 - (BOOL) startDeviceDiscovery:(NSString*)targetName {
-    return [manager startDiscovery:targetName];
+    return [manager startDiscovery:targetName
+                   allowDuplicates:NO];
+}
+
+- (BOOL) startDeviceDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
+    return [manager startDiscovery:targetName
+            allowDuplicates:allowDuplicates];
 }
 
 - (void) stopDeviceDiscovery {

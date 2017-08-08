@@ -18,6 +18,7 @@
 -(NovaliaBLEInterface *)init;
 -(NovaliaBLEInterface *)initWithDelegate:(id <NovaliaBLEInterfaceDelegate>)delegate;
 -(BOOL)startDeviceDiscovery:(NSString*)targetName;
+-(BOOL)startDeviceDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates;
 -(void)stopDeviceDiscovery;
 -(BOOL)isConnectedToDevice:(NovaliaBLEDevice *)device;
 -(NSArray*)devices;

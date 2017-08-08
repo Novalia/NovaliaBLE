@@ -18,7 +18,7 @@
 @property (readonly) NSMutableArray *connectedDevices;
 @property BOOL diagnosticsMode;
 
--(BOOL)startDiscovery:(NSString*)targetName;
+-(BOOL)startDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates;
 -(void)stopDiscovery;
 -(BOOL)isConnectedToDevice:(NovaliaBLEDevice *)device;
 -(void)connectToDevices:(NSArray *)devices;
