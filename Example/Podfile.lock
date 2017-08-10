@@ -1,14 +1,16 @@
 PODS:
-  - NovaliaBLE (0.1.0)
+  - NovaliaBLE (0.1.10)
 
 DEPENDENCIES:
   - NovaliaBLE (from `../`)
 
 EXTERNAL SOURCES:
   NovaliaBLE:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  NovaliaBLE: 906e07ebddbe4ccc46b5cb3e1e87555c0c33e429
+  NovaliaBLE: 075d4115860e2309abe5dae10e21c53de1c05794
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 55210473b13f01b9407c19a113978b8e7b7f0219
+
+COCOAPODS: 1.2.1
