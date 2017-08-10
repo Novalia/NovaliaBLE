@@ -1,10 +1,5 @@
 # NovaliaBLE
 
-[![CI Status](http://img.shields.io/travis/Andrew Sage/NovaliaBLE.svg?style=flat)](https://travis-ci.org/Andrew Sage/NovaliaBLE)
-[![Version](https://img.shields.io/cocoapods/v/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
-[![License](https://img.shields.io/cocoapods/l/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
-[![Platform](https://img.shields.io/cocoapods/p/NovaliaBLE.svg?style=flat)](http://cocoapods.org/pods/NovaliaBLE)
-
 ## What's new in 0.1.10
 
 Scanning for devices can now include previously discovered devices. This is useful for continous scanning when working with multiple devices.
