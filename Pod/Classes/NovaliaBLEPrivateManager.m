@@ -406,7 +406,7 @@
     
     
     
-    if([self.targetDeviceName containsObject:[array containsObject:@"c"]] || [[self.targetDeviceName objectAtIndex: 0] isEqualToString:@"*"]) {
+    if([self.targetDeviceName containsObject:peripheral.name] || [[self.targetDeviceName objectAtIndex: 0] isEqualToString:@"*"]) {
         
         [self.peripherals addObject:peripheral];
 
