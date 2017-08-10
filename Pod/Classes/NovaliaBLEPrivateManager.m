@@ -25,7 +25,7 @@
 @property CBUUID *appleBLEMIDICharacteristicUUID;
 @property CBUUID *primaryServiceUUID;
 @property CBUUID *primaryServiceSerialNumberCharacteristicUUID;
-@property NSString *targetDeviceName;
+@property NSArray *targetDeviceName;
 
 @property (strong,nonatomic) NSMutableArray *peripherals;
 
@@ -129,7 +129,7 @@
     }
 }
 
-- (BOOL)startDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
+- (BOOL)startDiscovery:(NSArray*)targetName allowDuplicates:(BOOL)allowDuplicates {
     if(diagnosticsMode) {
         NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
     }
@@ -404,7 +404,9 @@
         return;
     }
     
-    if([peripheral.name isEqualToString:self.targetDeviceName] || [self.targetDeviceName isEqualToString:@"*"]) {
+    
+    
+    if([self.targetDeviceName containsObject:[array containsObject:@"c"]] || [[self.targetDeviceName objectAtIndex: 0] isEqualToString:@"*"]) {
         
         [self.peripherals addObject:peripheral];
 

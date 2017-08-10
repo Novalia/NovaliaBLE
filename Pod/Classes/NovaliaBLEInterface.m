@@ -54,12 +54,12 @@
     [manager setDiagnosticsMode:diagnosticsMode];
 }
 
-- (BOOL) startDeviceDiscovery:(NSString*)targetName {
+- (BOOL) startDeviceDiscovery:(NSArray*)targetName {
     return [manager startDiscovery:targetName
                    allowDuplicates:NO];
 }
 
-- (BOOL) startDeviceDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
+- (BOOL) startDeviceDiscovery:(NSArray*)targetName allowDuplicates:(BOOL)allowDuplicates {
     return [manager startDiscovery:targetName
             allowDuplicates:allowDuplicates];
 }
