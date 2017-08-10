@@ -25,7 +25,7 @@
 @property CBUUID *appleBLEMIDICharacteristicUUID;
 @property CBUUID *primaryServiceUUID;
 @property CBUUID *primaryServiceSerialNumberCharacteristicUUID;
-@property NSString *targetDeviceName;
+@property NSArray *targetDeviceName;
 
 @property (strong,nonatomic) NSMutableArray *peripherals;
 
@@ -129,7 +129,7 @@
     }
 }
 
-- (BOOL)startDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
+- (BOOL)startDiscovery:(NSArray*)targetName allowDuplicates:(BOOL)allowDuplicates {
     if(diagnosticsMode) {
         NSLog(@"NovaliaBLEPrivateManager startDiscovery: called.");
     }
@@ -386,7 +386,7 @@
 
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"NovaliaBLEPrivateManager centralManager:didDiscoverPeripheral: %@ (RSSI: %@)", peripheral.name, RSSI);
+    //NSLog(@"NovaliaBLEPrivateManager centralManager:didDiscoverPeripheral: %@ (RSSI: %@)", peripheral.name, RSSI);
     
     BOOL isRecognised = NO;
     NSArray *advertisedUUIDs = [advertisementData valueForKey:CBAdvertisementDataServiceUUIDsKey];
@@ -394,17 +394,17 @@
     for (CBUUID *uuid in advertisedUUIDs) {
         if ([uuid isEqual:novaliaServiceUUID]) {
             isRecognised = YES;
-            NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
+//            NSLog(@"YES Recognized as Novalia service: %@", advertisementData);
             break;
         }
     }
-    
+          
     if (isRecognised == NO) {
-        //NSLog(@"NO Recognized: %@", advertisementData);
+       // NSLog(@"NO Recognized: %@", advertisementData);
         return;
     }
     
-    if([peripheral.name isEqualToString:self.targetDeviceName] || [self.targetDeviceName isEqualToString:@"*"]) {
+    if([self.targetDeviceName containsObject:peripheral.name] || [[self.targetDeviceName objectAtIndex: 0] isEqualToString:@"*"]) {
         
         [self.peripherals addObject:peripheral];
 

@@ -75,7 +75,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         if(interface == nil) {
             interface = NovaliaBLEInterface(delegate: self)
-            interface.diagnosticsMode = true
+            interface.diagnosticsMode = false
             previousBLEState = BLEStateNotReady
             launchDiscoveryTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startDiscovery), userInfo: nil, repeats: false)
         }
@@ -96,7 +96,7 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         // Set the device name to be searched for e.g. novppia1
         // Setting the device name to * searches for all devices
         // Allow devices to be rediscovered by setting allowDuplicates to true
-        self.interface.startDeviceDiscovery("*", allowDuplicates:true)
+        self.interface.startDeviceDiscovery(["suphero1"], allowDuplicates:true)
     }
     
     func stopDiscovery() {

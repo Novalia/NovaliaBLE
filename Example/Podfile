@@ -1,11 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
 use_frameworks!
 
-target 'NovaliaBLE_Example', :exclusive => true do
+target 'NovaliaBLE_Example' do
   pod "NovaliaBLE", :path => "../"
 end
 
-target 'NovaliaBLE_Tests', :exclusive => true do
+target 'NovaliaBLE_Tests' do
   pod "NovaliaBLE", :path => "../"
 
   
