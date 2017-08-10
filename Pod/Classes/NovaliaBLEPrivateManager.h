@@ -18,7 +18,7 @@
 @property (readonly) NSMutableArray *connectedDevices;
 @property BOOL diagnosticsMode;
 
--(BOOL)startDiscovery:(NSString*)targetName;
+-(BOOL)startDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates;
 -(void)stopDiscovery;
 -(BOOL)isConnectedToDevice:(NovaliaBLEDevice *)device;
 -(void)connectToDevices:(NSArray *)devices;
@@ -28,5 +28,6 @@
 -(NSArray*)retrieveDevicesWithIdentifiers:(NSArray *)identifiers;
 -(NovaliaBLEState)bluetoothState;
 -(void)writeData:(NSData*)data toDevice:(NovaliaBLEDevice *)device;
+-(void)writeDISSerialNumber:(NSString*)serialNumber toDevice:(NovaliaBLEDevice *)device;
 
 @end

@@ -19,6 +19,7 @@
 -(void)updateMACAddress:(NSString *)macAddress;
 -(void)updateFirmwareVersion:(NSString *)firmwareVersion;
 -(void)updateHardwareVersion:(NSString *)hardwareVersion;
+-(void)updateDeviceName:(NSString *)deviceName;
 -(void)updateStatus:(int)status;
 -(void)updateRSSI:(NSNumber *)RSSI;
 -(void)onButtonPressed:(int)button velocity:(int)velocity;

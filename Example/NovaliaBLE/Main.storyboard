@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,18 +79,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-to-xTd">
+                                <rect key="frame" x="159" y="553" width="56" height="30"/>
+                                <state key="normal" title="Rename"/>
+                                <connections>
+                                    <action selector="renameButtonTapped:" destination="whP-gf-Uak" eventType="touchUpInside" id="vP5-Np-ot9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continous scanning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScR-gb-mnn">
+                                <rect key="frame" x="111.5" y="485" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmt-mA-Z6l">
+                                <rect key="frame" x="163" y="514" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="top" secondItem="xtN-ct-LGK" secondAttribute="bottom" constant="8" symbolic="YES" id="2LR-vB-9je"/>
+                            <constraint firstItem="zmt-mA-Z6l" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="2RU-xB-X8V"/>
                             <constraint firstItem="KlS-EE-2pp" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="8bG-JI-Ape"/>
+                            <constraint firstItem="ScR-gb-mnn" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="9WG-6v-e86"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hOM-wQ-GMY" secondAttribute="trailing" id="CuH-ZB-JFg"/>
                             <constraint firstItem="KZK-S1-I0z" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="DH7-iC-xHY"/>
                             <constraint firstItem="VNu-Bs-Ceg" firstAttribute="top" secondItem="KlS-EE-2pp" secondAttribute="bottom" constant="8" symbolic="YES" id="FIj-RF-aHd"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="leading" secondItem="hOM-wQ-GMY" secondAttribute="trailing" constant="98" id="Fu4-dL-cVj"/>
+                            <constraint firstItem="zmt-mA-Z6l" firstAttribute="top" secondItem="ScR-gb-mnn" secondAttribute="bottom" constant="8" symbolic="YES" id="Gah-mo-Lfk"/>
                             <constraint firstItem="IHl-ro-QLR" firstAttribute="top" secondItem="OgJ-Tr-Ubm" secondAttribute="bottom" constant="8" symbolic="YES" id="McZ-nG-iYO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0WX-GJ-VaU" secondAttribute="trailing" id="NHw-iN-mA9"/>
                             <constraint firstItem="OgJ-Tr-Ubm" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="NO8-sU-wq1"/>
+                            <constraint firstItem="6Sl-to-xTd" firstAttribute="top" secondItem="zmt-mA-Z6l" secondAttribute="bottom" constant="8" symbolic="YES" id="OS4-vb-dsn"/>
                             <constraint firstItem="kog-xZ-6cY" firstAttribute="top" secondItem="KZK-S1-I0z" secondAttribute="bottom" constant="8" symbolic="YES" id="T7e-d1-jDz"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="top" secondItem="hOM-wQ-GMY" secondAttribute="bottom" constant="8" symbolic="YES" id="TfU-5E-0TN"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="kog-xZ-6cY" secondAttribute="bottom" constant="8" symbolic="YES" id="TxF-Tg-ttl"/>
@@ -98,10 +118,12 @@
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="ZD5-pE-K76"/>
                             <constraint firstItem="KlS-EE-2pp" firstAttribute="top" secondItem="0WX-GJ-VaU" secondAttribute="bottom" constant="8" id="ZKF-Ae-tKu"/>
                             <constraint firstItem="xtN-ct-LGK" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" symbolic="YES" id="ZYv-Da-yQt"/>
+                            <constraint firstItem="KZK-S1-I0z" firstAttribute="top" secondItem="6Sl-to-xTd" secondAttribute="bottom" constant="8" symbolic="YES" id="bpY-u4-XAR"/>
                             <constraint firstItem="OgJ-Tr-Ubm" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="c4f-Vh-9oy"/>
                             <constraint firstItem="kog-xZ-6cY" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="eoB-Nb-Ndk"/>
                             <constraint firstItem="0WX-GJ-VaU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="f4Z-ni-dqg"/>
                             <constraint firstItem="hOM-wQ-GMY" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="gnH-F4-V83"/>
+                            <constraint firstItem="6Sl-to-xTd" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="oX3-3A-S9j"/>
                             <constraint firstItem="IHl-ro-QLR" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="owv-qR-Gbc"/>
                             <constraint firstItem="OgJ-Tr-Ubm" firstAttribute="top" secondItem="VNu-Bs-Ceg" secondAttribute="bottom" constant="8" symbolic="YES" id="uDi-sn-L0i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IHl-ro-QLR" secondAttribute="trailing" id="vhm-b7-lwL"/>
@@ -117,12 +139,14 @@
                     </view>
                     <connections>
                         <outlet property="connectionStatusLabel" destination="hOM-wQ-GMY" id="7Zu-pH-rPN"/>
+                        <outlet property="continousScanningSwitch" destination="zmt-mA-Z6l" id="4PI-aO-ijp"/>
                         <outlet property="deviceNameLabel" destination="0WX-GJ-VaU" id="sed-h7-IwW"/>
                         <outlet property="disconnectButton" destination="kog-xZ-6cY" id="Fbl-dp-9Sa"/>
                         <outlet property="firmwareVersionLabel" destination="VNu-Bs-Ceg" id="H1g-WN-Ylp"/>
                         <outlet property="hardwareVersionLabel" destination="OgJ-Tr-Ubm" id="81P-Vz-mzl"/>
                         <outlet property="inputLabel" destination="IHl-ro-QLR" id="cID-YS-1d2"/>
                         <outlet property="macAddressLabel" destination="KlS-EE-2pp" id="Sgb-xC-ddc"/>
+                        <outlet property="renameButton" destination="6Sl-to-xTd" id="2kb-Uc-scW"/>
                         <outlet property="scanButton" destination="xtN-ct-LGK" id="UoP-Nf-ONc"/>
                     </connections>
                 </viewController>

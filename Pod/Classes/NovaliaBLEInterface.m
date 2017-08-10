@@ -55,7 +55,13 @@
 }
 
 - (BOOL) startDeviceDiscovery:(NSString*)targetName {
-    return [manager startDiscovery:targetName];
+    return [manager startDiscovery:targetName
+                   allowDuplicates:NO];
+}
+
+- (BOOL) startDeviceDiscovery:(NSString*)targetName allowDuplicates:(BOOL)allowDuplicates {
+    return [manager startDiscovery:targetName
+            allowDuplicates:allowDuplicates];
 }
 
 - (void) stopDeviceDiscovery {
@@ -98,6 +104,12 @@
     
     NSLog(@"NovaliaBLEInterface writeData %@ toDevice %@", data, device);
     [manager writeData:data toDevice:device];
+}
+
+-(void)writeDISSerialNumber:(NSString*)serialNumber toDevice:(NovaliaBLEDevice *)device {
+    NSLog(@"NovaliaBLEInterface writeDISData %@ toDevice %@", serialNumber, device);
+    [manager writeDISSerialNumber:serialNumber toDevice:device];
+
 }
 
 @end

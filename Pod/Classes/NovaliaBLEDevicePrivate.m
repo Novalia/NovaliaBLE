@@ -16,6 +16,7 @@
 @property NSString* macAddress;
 @property NSString* firmwareVersion;
 @property NSString* hardwareVersion;
+@property NSString* deviceName;
 
 @end
 
@@ -30,6 +31,7 @@
 @synthesize firmwareVersion;
 @synthesize hardwareVersion;
 @synthesize peripheral;
+@synthesize deviceName;
 
 -(NovaliaBLEDevicePrivate *)initWithPeripheral:(CBPeripheral*)p {
     self = [self initWithUUID:[p identifier] andName:p.name];
@@ -74,6 +76,13 @@
     [self setHardwareVersion:hardwareVersion];
     if ([self.delegate respondsToSelector:@selector(onHardwareVersionUpdated:onDevice:)]) {
         [self.delegate onHardwareVersionUpdated:hardwareVersion onDevice:self];
+    }
+}
+
+-(void)updateDeviceName:(NSString *)deviceName {
+    [self setDeviceName:deviceName];
+    if ([self.delegate respondsToSelector:@selector(onNameUpdated:onDevice:)]) {
+        [self.delegate onNameUpdated:deviceName onDevice:self];
     }
 }
 

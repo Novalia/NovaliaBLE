@@ -20,6 +20,8 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var connectionStatusLabel: UILabel!
+    @IBOutlet weak var renameButton: UIButton!
+    @IBOutlet weak var continousScanningSwitch: UISwitch!
     
     @IBOutlet weak var deviceNameLabel: UILabel!
     @IBOutlet weak var inputLabel: UILabel!
@@ -52,6 +54,22 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         }
     }
     
+    @IBAction func renameButtonTapped(_ sender: AnyObject) {
+        if currentDevice != nil {
+            
+            let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            var randomString: String = ""
+            
+            for _ in 0..<10 {
+                let randomValue = arc4random_uniform(UInt32(base.characters.count))
+                randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+            }
+            
+            
+            self.interface.writeDISSerialNumber(randomString, to: currentDevice)
+        }
+    }
+    
     // MARK: NovaliaBLEInterface methods
     func initInterfaceIfNeeded() {
         
@@ -67,7 +85,9 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         self.scanButton.setTitle("Scanning", for: UIControlState())
         
-        launchDiscoveryTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopDiscovery), userInfo: nil, repeats: false)
+        if self.continousScanningSwitch.isOn == false {
+            launchDiscoveryTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(stopDiscovery), userInfo: nil, repeats: false)
+        }
         
         if currentDevice == nil {
             // Set a status message to indicate no device connected
@@ -75,7 +95,8 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         // Set the device name to be searched for e.g. novppia1
         // Setting the device name to * searches for all devices
-        self.interface.startDeviceDiscovery("*")
+        // Allow devices to be rediscovered by setting allowDuplicates to true
+        self.interface.startDeviceDiscovery("*", allowDuplicates:true)
     }
     
     func stopDiscovery() {
@@ -110,10 +131,10 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
         
         device.delegate = self
         selectedDevices = array
-        //interface.connectToDevice(device)
+        interface.connect(to: device)
     }
 
-    @nonobjc func onDeviceListChanged(_ newList: [NovaliaBLEDevice]) {
+    func onDeviceListChanged(_ newList: [NovaliaBLEDevice]) {
         
         var connected = 0
         var connecting = 0
@@ -174,12 +195,14 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     }
     
     func onDeviceDisconnected(_ device: NovaliaBLEDevice!) {
-        //currentDevice = nil
+        currentDevice = nil
         
         // Set a status message to indicate no device connected
+        self.deviceNameLabel.text = "No device connected"
+        self.macAddressLabel.text = ""
         
         // Try to reconnect
-        //interface.connectToDevice(device)
+        interface.connect(to: device)
     }
     
     
@@ -237,5 +260,10 @@ class DeviceController: UIViewController, NovaliaBLEInterfaceDelegate, NovaliaBL
     func onHardwareVersionUpdated(_ hardwareVersion: String!, onDevice device: Any!) {
         let device = device as! NovaliaBLEDevice
         self.hardwareVersionLabel.text =  "Hardware \(device.hardwareVersion!)"
+    }
+    
+    func onNameUpdated(_ deviceName: String!, onDevice device: Any!) {
+        let device = device as! NovaliaBLEDevice
+        self.deviceNameLabel.text = deviceName
     }
 }
